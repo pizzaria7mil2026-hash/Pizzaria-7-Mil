@@ -1,0 +1,21 @@
+REGRAS DO FIREBASE REALTIME DATABASE — PIZZARIA 7 MIL
+
+Cole exatamente este JSON em Realtime Database > Regras e clique em Publicar:
+
+{
+  "rules": {
+    "pedidos": {
+      ".read": "auth != null && auth.token.email === 'pizzaria7mil2026@gmail.com'",
+      "$pedidoId": {
+        ".read": "auth != null && (auth.token.email === 'pizzaria7mil2026@gmail.com' || data.child('ownerUid').val() === auth.uid)",
+        ".write": "auth != null && (auth.token.email === 'pizzaria7mil2026@gmail.com' || (!data.exists() && newData.child('ownerUid').val() === auth.uid))"
+      }
+    }
+  }
+}
+
+IMPORTANTE:
+- Não habilite leitura/gravação pública.
+- O administrador é pizzaria7mil2026@gmail.com.
+- Clientes usam autenticação anônima para enviar e acompanhar somente os próprios pedidos.
+- O administrador usa Entrar com Google.

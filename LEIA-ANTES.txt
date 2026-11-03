@@ -1,0 +1,37 @@
+PIZZARIA 7 MIL — INTEGRAÇÃO FIREBASE
+
+O index.html foi atualizado para:
+- conectar ao Firebase Realtime Database;
+- permitir login administrativo com Google para pizzaria7mil2026@gmail.com;
+- autenticar clientes anonimamente, sem exigir cadastro;
+- gravar pedidos no banco e associar cada pedido ao UID anônimo do navegador;
+- permitir que o cliente leia somente o próprio pedido;
+- permitir que o administrador liste e atualize os pedidos.
+
+ANTES DE PUBLICAR NO GITHUB PAGES:
+
+1) Firebase Console > Authentication > Método de login:
+   - Google: ativado.
+   - Anônimo (Anonymous): ativado também. Isso é necessário para os clientes fazerem pedidos sem conta.
+
+2) Authentication > Configurações > Domínios autorizados:
+   adicione pizzaria7mil2026-hash.github.io
+   (somente o domínio, sem https e sem /Pizzaria-7-Mil/).
+
+3) Realtime Database > Regras:
+   copie o conteúdo de REGRAS_FIREBASE.txt, cole no editor e clique em Publicar.
+
+4) No GitHub, substitua o index.html pelo deste pacote e mantenha os arquivos de imagem existentes.
+   Faça commit e aguarde o GitHub Pages publicar.
+
+5) Teste:
+   - Em um celular/navegador, faça um pedido de teste.
+   - No computador, abra https://pizzaria7mil2026-hash.github.io/Pizzaria-7-Mil/#painel
+   - Clique em Entrar com Google e use pizzaria7mil2026@gmail.com.
+   - Atualize o status do pedido e confira no navegador do cliente.
+
+OBSERVAÇÕES IMPORTANTES:
+- Os pedidos antigos que estavam somente no LocalStorage não são migrados automaticamente. Faça um pedido novo para testar o Firebase.
+- Cada pedido é acompanhado no navegador/dispositivo em que foi criado, pois o identificador de acompanhamento fica no armazenamento local desse navegador.
+- A configuração do Firebase no front-end inclui uma chave de API pública do projeto; a proteção real está nas regras do banco e na autenticação.
+- Não compartilhe acesso à conta Google administradora.

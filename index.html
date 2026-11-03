@@ -345,9 +345,19 @@ a{color:inherit;text-decoration:none}
 <a class="wa" id="waF" target="_blank" rel="noopener" href="#" aria-label="Chamar no WhatsApp">💬</a>
 <div id="toast" role="status"></div>
 
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import { getDatabase, ref, set, update, get } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-database.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInAnonymously, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+
 /* ===== CONFIGURAÇÃO (edite aqui) ===== */
-const CFG={zap:"5571981160304",email:"SEU_EMAIL@gmail.com",firebase:"",pin:"7000",taxa:0,borda:5,ptsReal:1,meta:100,desc:10};
+const CFG={zap:"5571981160304",email:"pizzaria7mil2026@gmail.com",firebase:"https://pizzaria-7-mil-22fcc-default-rtdb.firebaseio.com",adminEmail:"pizzaria7mil2026@gmail.com",taxa:0,borda:5,ptsReal:1,meta:100,desc:10};
+const firebaseConfig={apiKey:"AIzaSyD67TxdMYP_5m2cl0PES8eeOj5S7tOlT6A",authDomain:"pizzaria-7-mil-22fcc.firebaseapp.com",databaseURL:CFG.firebase,projectId:"pizzaria-7-mil-22fcc",storageBucket:"pizzaria-7-mil-22fcc.firebasestorage.app",messagingSenderId:"360412653000",appId:"1:360412653000:web:d3f43a72bcb492bce64cfd",measurementId:"G-4WXY0F420F"};
+const fbApp=initializeApp(firebaseConfig),fbDb=getDatabase(fbApp),fbAuth=getAuth(fbApp),googleProvider=new GoogleAuthProvider();
+let authReadyResolve;const authReady=new Promise(r=>authReadyResolve=r);let fbUser=null;
+onAuthStateChanged(fbAuth,async u=>{fbUser=u;if(!u){try{await signInAnonymously(fbAuth)}catch(e){console.error('Falha no login anônimo:',e)}}else {authReadyResolve(u);if(location.hash==="#painel"&&$("#v-painel")?.classList.contains("on"))renderPainel();}});
+async function currentFirebaseUser(){if(fbAuth.currentUser)return fbAuth.currentUser;await authReady;return fbAuth.currentUser||null;}
+async function entrarAdmin(){try{const result=await signInWithPopup(fbAuth,googleProvider);if(result.user.email?.toLowerCase()!==CFG.adminEmail.toLowerCase()){await signOut(fbAuth);toast('Esta conta Google não é administradora.');return false;}pOk=true;renderPainel();return true;}catch(e){console.error(e);toast('Não foi possível entrar com Google. Confira o domínio autorizado.');return false;}}
 const TAM=[ /* preços de exemplo: troque pelos reais */
  {n:"Broto",f:4,s:1,p:25},{n:"Média",f:6,s:2,p:35},{n:"Grande",f:8,s:3,p:45},{n:"Família",f:12,s:4,p:60}];
 const BEB=[["Coca-Cola 2 L",14,"coca2l.webp"],["Guaraná Antarctica 1,5 L",12,"guarana.webp"],["Coca-Cola lata 350 ml",6,"cocalata.webp"],["Pepsi lata 350 ml",6,"pepsi.webp"],["Suco natural",7,"🧃"],["Água mineral",3,"💧"]];
@@ -518,11 +528,12 @@ $("#resumo").onclick=e=>{if(e.target.id==="resg"){usar=e.target.checked;renderPe
 $("#fPag").onchange=e=>$("#trocoBox").hidden=e.target.value!=="Dinheiro";
 const DB={
   u:()=>CFG.firebase.replace(/\/$/,""),
-  async put(id,o){if(DB.u()){const r=await fetch(`${DB.u()}/pedidos/${id}.json`,{method:"PUT",body:JSON.stringify(o)});if(!r.ok)throw 0}else{const a=ler("p7ped",{});a[id]=o;gravar("p7ped",a)}},
-  async patch(id,o){if(DB.u()){await fetch(`${DB.u()}/pedidos/${id}.json`,{method:"PATCH",body:JSON.stringify(o)})}else{const a=ler("p7ped",{});a[id]={...a[id],...o};gravar("p7ped",a)}},
-  async get(id){if(DB.u()){const r=await fetch(`${DB.u()}/pedidos/${id}.json`,{cache:"no-store"});return r.json()}return ler("p7ped",{})[id]||null},
-  async all(){if(DB.u()){const r=await fetch(`${DB.u()}/pedidos.json`,{cache:"no-store"});return r.json()}return ler("p7ped",{})}
+  async put(id,o){const u=await currentFirebaseUser();if(!u)throw new Error('Autenticação indisponível');o.ownerUid=u.uid;await set(ref(fbDb,`pedidos/${id}`),o)},
+  async patch(id,o){await update(ref(fbDb,`pedidos/${id}`),o)},
+  async get(id){await currentFirebaseUser();const snap=await get(ref(fbDb,`pedidos/${id}`));return snap.exists()?snap.val():null},
+  async all(){await currentFirebaseUser();const snap=await get(ref(fbDb,"pedidos"));return snap.exists()?snap.val():{}}
 };
+
 const fone=t=>{t=String(t).replace(/\D/g,"");return t.length<=11?"55"+t:t};
 function msgZap(o){const c=o.cli;
   return `🍕 *NOVO PEDIDO #${o.id}* 🍕\n━━━━━━━━━━━━━━\n🛒 *ITENS*\n`+o.itens.map(i=>`▪️ ${i.qtd}x ${i.nome}${i.det?` _(${i.det})_`:""} — ${R$(i.preco*i.qtd)}`).join("\n")+
@@ -531,15 +542,15 @@ function mandaEmail(o){
   if(!/^[^@\s]+@[^@\s]+$/.test(CFG.email)||/SEU_EMAIL/.test(CFG.email))return;const c=o.cli;
   fetch("https://formsubmit.co/ajax/"+CFG.email,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({_subject:`🍕 Novo pedido #${o.id} – ${R$(o.total)}`,_template:"box",_captcha:"false",
     "Pedido":"#"+o.id,"Itens":o.itens.map(i=>`${i.qtd}x ${i.nome}${i.det?` (${i.det})`:""} = ${R$(i.preco*i.qtd)}`).join(" || "),"Total":R$(o.total),"Cliente":c.nome,"Telefone":c.tel,"Endereço":`${c.rua}, ${c.bairro}`,"Ponto de referência":c.ref,"Pagamento":c.pag+(c.troco?` (troco para ${c.troco})`:"")})}).catch(()=>{})}
-$("#form").onsubmit=e=>{e.preventDefault();
+$("#form").onsubmit=async e=>{e.preventDefault();
   const s=sub(),dc=usar?CFG.desc:0,total=s-dc+CFG.taxa,id="7M"+Math.random().toString(36).slice(2,6).toUpperCase(),p=$("#fPag").value;
   const o={id,t:Date.now(),status:"novo",uid:user?user.tel:null,pts:Math.floor(total*CFG.ptsReal),itens:cart.map(c=>({...c})),sub:s,desc:dc,taxa:CFG.taxa,total,
     cli:{nome:$("#fNome").value,tel:$("#fTel").value,rua:$("#fRua").value,bairro:$("#fBairro").value,ref:$("#fRef").value,pag:p,troco:p==="Dinheiro"?$("#fTroco").value:""}};
   if(user&&usar){user.pontos-=CFG.meta;gravar("p7u",user);const a=ler("p7a",{});a[user.tel]=user;gravar("p7a",a)}
-  window.open("https://wa.me/"+CFG.zap+"?text="+encodeURIComponent(msgZap(o)),"_blank");
-  gravar("p7atual",id);gravar("p7o",o);ultSt=null;
-  DB.put(id,o).catch(()=>toast("Não consegui avisar o painel. Confirme pelo WhatsApp."));
-  mandaEmail(o);cart=[];usar=false;save();renderLogin();trkUpd();go("espera")};
+  const envio=window.open("https://wa.me/"+CFG.zap+"?text="+encodeURIComponent(msgZap(o)),"_blank");
+  try{await DB.put(id,o);gravar("p7atual",id);gravar("p7o",o);ultSt=null;mandaEmail(o);cart=[];usar=false;save();renderLogin();trkUpd();go("espera");}
+  catch(err){console.error(err);if(envio)envio.close();toast("Não foi possível salvar o pedido. Verifique a conexão e tente novamente.");}
+};
 
 /* ===== SALA DE ESPERA ===== */
 let ultSt=null;
@@ -579,8 +590,10 @@ let pOk=false,vistos=null;
 const ST={novo:["🆕 Novo","aceito","✅ Aceitar pedido"],aceito:["👨‍🍳 Preparando","saiu","🛵 Saiu para entrega"],saiu:["🛵 A caminho","chegou","🏠 Chegou ao cliente"],chegou:["✅ Entregue"],cancelado:["❌ Cancelado"]};
 async function renderPainel(){
   const el=$("#pn");
-  if(!pOk){el.innerHTML=`<div class="card"><h2>Painel da pizzaria</h2><label class="lab" for="pin">Senha</label><input type="tel" id="pin" autocomplete="off"><button class="btn" id="pinOk" style="width:100%;margin-top:14px">Entrar</button></div>`;return}
-  let all={};try{all=await DB.all()||{}}catch(e){el.innerHTML="<p>Erro ao carregar pedidos.</p>";return}
+  const current=fbAuth.currentUser;
+  pOk=!!(current&&current.email&&current.email.toLowerCase()===CFG.adminEmail.toLowerCase());
+  if(!pOk){el.innerHTML=`<div class="card"><h2>Painel da pizzaria</h2><p>Entre com a conta Google autorizada para administrar os pedidos.</p><button class="btn" id="googleAdmin" style="width:100%;margin-top:14px">Entrar com Google</button><p class="aviso">Conta autorizada: ${esc(CFG.adminEmail)}</p></div>`;return}
+  let all={};try{all=await DB.all()||{}}catch(e){el.innerHTML="<p>Erro ao carregar pedidos. Confira as regras do Firebase.</p>";return}
   const l=Object.values(all).filter(o=>o&&o.id&&Date.now()-o.t<864e5).sort((a,b)=>b.t-a.t);
   if(vistos===null)vistos=new Set(l.map(o=>o.id));else{if(l.some(o=>o.status==="novo"&&!vistos.has(o.id))){bip(true);toast("🍕 Novo pedido!")}l.forEach(o=>vistos.add(o.id))}
   el.innerHTML=`<h2 class="tit" style="font-size:2.8rem;color:var(--o)">Pedidos das últimas 24h</h2>${CFG.firebase?"":`<p class="aviso">Modo teste: os pedidos só aparecem neste navegador. Configure o Firebase para funcionar entre aparelhos.</p>`}
@@ -590,7 +603,7 @@ async function renderPainel(){
   <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">${st[1]?`<button class="btn sm" data-st="${o.id}:${st[1]}">${st[2]}</button>`:""}${o.status==="novo"?`<button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-st="${o.id}:cancelado">Recusar</button>`:""}</div></div>`}).join("")||"<p>Nenhum pedido ainda.</p>"}</div>`;
 }
 $("#pn").addEventListener("click",async e=>{
-  if(e.target.id==="pinOk"){if($("#pin").value===CFG.pin){pOk=true;bip();renderPainel()}else toast("Senha incorreta");return}
+  if(e.target.id==="googleAdmin"){await entrarAdmin();return}
   const b=e.target.closest("[data-st]");if(b){const[id,st]=b.dataset.st.split(":");await DB.patch(id,{status:st,[st+"T"]:Date.now()});renderPainel()}});
 setInterval(()=>{if($("#v-espera").classList.contains("on"))renderEspera();if($("#v-painel").classList.contains("on")&&pOk)renderPainel()},4000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&$("#v-espera").classList.contains("on"))renderEspera()});
