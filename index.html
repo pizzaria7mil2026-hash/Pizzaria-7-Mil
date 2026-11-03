@@ -171,13 +171,56 @@ footer{background:#170303;color:var(--c);text-align:center;padding:22px;font-siz
 .wa{position:fixed;right:16px;bottom:16px;z-index:40;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.45);transition:transform .2s}.wa:hover{transform:scale(1.15) rotate(-8deg)}
 #pizza{width:var(--pw,80%);margin:0 auto;transition:width .5s cubic-bezier(.3,1.4,.5,1)}
 @media(max-width:820px){.hg,.tg,.cg,.sec2{grid-template-columns:1fr}.hp{order:-1}.hp img{width:100%;margin:0}.hn,header .tit{display:none}#loginBtn{margin-left:auto}.hero{padding-top:10px}.sc{padding:84px 0 60px}.seta{display:none}.sel2{right:2%}}
-</style>
+
+a{color:inherit;text-decoration:none}
+.cc{color:var(--c)}.cc b{color:var(--o);font-size:1.25rem;margin-bottom:2px}.cc em{font-style:normal;opacity:.95}a.cc:hover,a.cc:hover b{color:var(--v)}
+.slots{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}.slot{border:2px dashed var(--r);border-radius:999px;padding:5px 14px;font-weight:800;font-size:.9rem;color:var(--r)}.slot.ok{background:var(--r);color:#fff;border-style:solid;animation:pop2 .35s}
+.cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.cats .tab{padding:5px 12px;font-size:.88rem}
+.rowb{display:flex;gap:8px}.rowb input{flex:1}
+.lista.g2{max-height:430px;padding:12px 10px 6px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.sc2{position:relative;background:#fff;border:3px solid #ecd5b3;border-radius:18px;padding:12px 10px;text-align:center;color:var(--t);transition:.2s;display:block;width:100%}
+.sc2:hover{transform:translateY(-5px) rotate(-1.2deg);border-color:var(--r);box-shadow:0 8px 0 var(--r)}
+.sc2 .e{font-size:2.2rem;display:block;transition:transform .3s}.sc2:hover .e{transform:scale(1.25) rotate(-10deg)}
+.sc2 b{display:block;line-height:1.1;margin:2px 0}.sc2 small{display:block;font-size:.76rem;opacity:.75;line-height:1.25}
+.sc2.sel{border-color:var(--r);background:#ffe6dc}.sc2.cheio:not(.sel){opacity:.45}
+.ck{position:absolute;top:-9px;right:-7px;background:var(--r);color:#fff;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-style:normal;font-weight:800;animation:pop2 .3s}
+.treme{animation:treme .4s}@keyframes treme{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.bebs{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.beb{flex-direction:column;text-align:center;padding:12px 8px;transition:.2s}.beb>div{flex:none!important}
+.beb:hover{transform:translateY(-4px);border-color:var(--r)}.beb.tem{border-color:var(--r);background:#ffe6dc}
+.beb img{height:110px;object-fit:contain;transition:transform .3s}.beb:hover img{transform:scale(1.1) rotate(-4deg)}
+.beb .em2{font-size:3.4rem;height:110px;display:grid;place-items:center}
+.sala{position:relative;border-radius:28px;overflow:hidden;min-height:80vh;display:grid;place-items:center;padding:22px;border:4px solid #b79af0}
+.sala .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:opacity 1.4s}.sala .b{opacity:0}.sala.festa .b{opacity:1}
+.sala .veu{position:absolute;inset:0;background:linear-gradient(180deg,rgba(60,20,120,.2),rgba(40,10,90,.55))}
+.conf{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:3}.conf span{position:absolute;top:-40px;font-size:1.6rem;animation:cai linear infinite}@keyframes cai{to{transform:translateY(110vh) rotate(720deg)}}
+.ep{position:relative;z-index:2;background:rgba(255,255,255,.95);color:#2a1448;border-radius:26px;padding:26px 22px;width:min(580px,100%);box-shadow:0 20px 50px rgba(30,0,70,.5);text-align:center}
+.ep h2{font-size:2.8rem;color:#6a2fd0;margin:4px 0 6px}.ep p{margin-bottom:6px}
+.bi{font-size:4.2rem;display:block;animation:balanca 2s ease-in-out infinite}.i-aceito{animation:pula .7s ease-in-out infinite!important}.i-chegou{animation:pop2 .6s,pula 1s .6s infinite!important}
+@keyframes balanca{50%{transform:rotate(18deg)}}@keyframes pula{50%{transform:translateY(-12px)}}
+.tl{display:flex;margin:16px 0 6px}.st{flex:1;font-size:.78rem;font-weight:800;opacity:.45;position:relative}
+.st span{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#e8dcff;margin:0 auto 4px;font-size:1.3rem;position:relative;z-index:1}
+.st::before{content:"";position:absolute;top:19px;left:-50%;width:100%;height:4px;background:#e8dcff}.st:first-child::before{display:none}
+.st.ok,.st.on{opacity:1}.st.ok span{background:#7b3fe4}.st.ok::before,.st.on::before{background:#7b3fe4}.st.on span{background:#fff;border:3px solid #7b3fe4;animation:pulsoR 1.5s infinite}
+@keyframes pulsoR{0%{box-shadow:0 0 0 0 rgba(123,63,228,.55)}100%{box-shadow:0 0 0 14px transparent}}
+.rua{position:relative;height:46px;margin:10px 0;border-bottom:4px dashed #b79af0;overflow:hidden}.moto{position:absolute;bottom:-3px;font-size:2rem;animation:anda 3.5s linear infinite}.moto i{display:inline-block;font-style:normal;transform:scaleX(-1)}.casa{position:absolute;right:2px;bottom:0;font-size:2rem}
+@keyframes anda{from{left:-10%}to{left:84%}}
+.pts2{background:#f3ecff;border:3px solid #7b3fe4;border-radius:18px;padding:12px;margin:12px 0}.pts2 b{font:italic 800 3.2rem 'Barlow Condensed';color:#6a2fd0;line-height:1}
+.res{text-align:left;background:#f7f2ff;border-radius:14px;padding:12px;font-size:.9rem;margin-top:12px}.res div{display:flex;justify-content:space-between;gap:8px}
+.btn.rx{background:#7b3fe4}.btn.rx:hover{background:#8f57f0}
+.pn{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:14px}
+.po{background:var(--c);color:var(--t);border-radius:18px;padding:16px;font-size:.92rem}.po h3{color:var(--r);font-size:1.8rem}.po.novo{outline:4px solid var(--o);animation:pulsoR 1.4s infinite}
+.po .row{display:flex;justify-content:space-between;gap:8px}.po hr{border:0;border-top:1px dashed #d8b98f;margin:8px 0}
+.stt{display:inline-block;background:var(--r);color:#fff;border-radius:999px;padding:2px 12px;font-weight:800;font-size:.8rem}
+#trk .tx{display:inline}
+@media(max-width:820px){#trk .tx{display:none}.ep h2{font-size:2.2rem}}
+.hn button,header .btn{white-space:nowrap}@media(max-width:1150px){header .tit{display:none}}</style>
 </head>
 <body>
 <header><div class="wrap">
   <img src="logo.png" alt="Pizzaria 7 Mil" data-go="home">
   <span class="tit nl" style="font-size:1.5rem">Pizzaria 7 Mil</span>
-  <nav class="sp nl hn"><button data-sc="como">Como pedir</button><button data-sc="sabores">Sabores</button><button data-sc="tamanhos">Tamanhos</button><button data-sc="chef">O Chef</button><button data-sc="contato">Contato</button></nav><button class="btn g sm" data-go="conta" id="loginBtn">Entrar</button>
+  <nav class="sp nl hn"><button data-sc="como">Como pedir</button><button data-sc="sabores">Sabores</button><button data-sc="tamanhos">Tamanhos</button><button data-sc="chef">O Chef</button><button data-sc="contato">Contato</button></nav><button class="btn o sm" data-go="espera" id="trk" hidden>🔔<span class="tx"> Meu pedido</span></button><button class="btn g sm" data-go="conta" id="loginBtn">Entrar</button>
   <button class="btn o sm" data-go="pedido">Pedido<span class="badge" id="cnt">0</span></button>
 </div></header>
 
@@ -251,13 +294,14 @@ footer{background:#170303;color:var(--c);text-align:center;padding:22px;font-siz
   <section class="sc dark cr" id="contato"><div class="wrap">
     <h2 class="rv">Fale com a gente</h2>
     <div class="cts">
-      <a class="cc rv" id="zap" target="_blank" rel="noopener" href="#"><span>💬</span><b>WhatsApp</b>(71) 8116-0304</a>
-      <a class="cc rv" href="tel:+5571981160304" style="--d:.1s"><span>📞</span><b>Ligar agora</b>(71) 8116-0304</a>
-      <div class="cc rv" style="--d:.2s"><span>📍</span><b>Onde estamos</b>Monte Negro (Cascalheira)<br>Camaçari – BA</div>
+      <a class="cc rv" id="zap" target="_blank" rel="noopener" href="#"><span>💬</span><b>WhatsApp</b><em>(71) 8116-0304</em></a>
+      <a class="cc rv" href="https://www.instagram.com/martins7mil2018/" target="_blank" rel="noopener" style="--d:.1s"><span>📸</span><b>Instagram</b><em>@martins7mil2018</em></a>
+      <a class="cc rv" href="tel:+5571981160304" style="--d:.2s"><span>📞</span><b>Ligar agora</b><em>(71) 8116-0304</em></a>
+      <div class="cc rv" style="--d:.3s"><span>📍</span><b>Onde estamos</b><em>Monte Negro (Cascalheira)<br>Camaçari – BA</em></div>
     </div>
     <div class="fim rv"><h2>Bateu a fome?</h2><button class="btn o big pulso" data-go="montar">Fazer meu pedido</button></div>
   </div></section>
-  <footer>© <span id="ano"></span> Pizzaria 7 Mil · Monte Negro, Camaçari – BA</footer>
+  <footer>© <span id="ano"></span> Pizzaria 7 Mil · Monte Negro, Camaçari – BA · <a href="https://www.instagram.com/martins7mil2018/" target="_blank" rel="noopener" style="color:var(--o);font-weight:800">Instagram</a></footer>
 </section>
 
 <!-- MONTAR -->
@@ -290,21 +334,23 @@ footer{background:#170303;color:var(--c);text-align:center;padding:22px;font-siz
     <label class="lab" for="fPag">Forma de pagamento</label>
     <select id="fPag"><option>Pix</option><option>Dinheiro</option><option>Cartão de débito</option><option>Cartão de crédito</option></select>
     <div id="trocoBox" hidden><label class="lab" for="fTroco">Troco para quanto?</label><input type="text" id="fTroco"></div>
-    <button class="btn" style="width:100%;margin-top:18px;padding:15px" type="submit">Enviar pedido pelo WhatsApp</button>
-    <p class="aviso">O pedido abre no WhatsApp da pizzaria já preenchido. É só confirmar o envio.</p>
+    <button class="btn" style="width:100%;margin-top:18px;padding:15px" type="submit">Finalizar pedido</button>
+    <p class="aviso">Depois de finalizar você acompanha tudo na sala de espera. Também abrimos o WhatsApp da pizzaria com o resumo: é só tocar em enviar.</p>
   </form>
   <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-go="montar" id="maisPizza">+ Montar outra pizza</button></div>
 </div></section>
+<section class="view" id="v-espera"><div class="sala" id="sala"><div class="bg a" style="background-image:url(sala.webp)"></div><div class="bg b" style="background-image:url(festa.webp)"></div><div class="veu"></div><div class="conf" id="conf"></div><div class="ep" id="ep"></div></div></section>
+<section class="view" id="v-painel"><div id="pn"></div></section>
 </main>
 <a class="wa" id="waF" target="_blank" rel="noopener" href="#" aria-label="Chamar no WhatsApp">💬</a>
 <div id="toast" role="status"></div>
 
 <script>
 /* ===== CONFIGURAÇÃO (edite aqui) ===== */
-const CFG={zap:"5571981160304",taxa:0,borda:5,ptsReal:1,meta:100,desc:10};
+const CFG={zap:"5571981160304",email:"SEU_EMAIL@gmail.com",firebase:"",pin:"7000",taxa:0,borda:5,ptsReal:1,meta:100,desc:10};
 const TAM=[ /* preços de exemplo: troque pelos reais */
  {n:"Broto",f:4,s:1,p:25},{n:"Média",f:6,s:2,p:35},{n:"Grande",f:8,s:3,p:45},{n:"Família",f:12,s:4,p:60}];
-const BEB=[["Coca-Cola 2 L",14],["Guaraná 2 L",12],["Refrigerante 1 L",8],["Refrigerante lata",6],["Suco natural",7],["Água mineral",3]];
+const BEB=[["Coca-Cola 2 L",14,"coca2l.webp"],["Guaraná Antarctica 1,5 L",12,"guarana.webp"],["Coca-Cola lata 350 ml",6,"cocalata.webp"],["Pepsi lata 350 ml",6,"pepsi.webp"],["Suco natural",7,"🧃"],["Água mineral",3,"💧"]];
 const SAL=`Frango|frango
 Frango Catupiry|frango, catupiry
 Frango Cheddar|frango, cheddar
@@ -382,7 +428,7 @@ function pizzaSVG(n,fl,borda,fat,nova){
 function go(v){
   document.querySelectorAll(".view").forEach(e=>e.classList.toggle("on",e.id==="v-"+v));
   window.scrollTo({top:0,behavior:"auto"});
-  if(v==="montar")wizard();if(v==="conta")renderConta();if(v==="pedido")renderPedido();
+  if(v==="espera"){ultSt=null;renderEspera()}if(v==="painel")renderPainel();if(v==="montar")wizard();if(v==="conta")renderConta();if(v==="pedido")renderPedido();
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!b)return;
   if(b.dataset.go==="montar"&&b.id==="maisPizza")W={passo:1,tam:null,sab:[],borda:"",tab:"s",q:"",ultimo:-1};
@@ -391,6 +437,10 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!
 
 /* ===== MONTAGEM ===== */
 const PASSOS=["Tamanho","Sabores","Borda","Bebidas"];
+const CATS=[["todos","Todos",()=>true],["frango","🍗 Frango",s=>s.c==="s"&&/frango/.test(s.r)],["carnes","🥩 Carnes",s=>s.c==="s"&&/bacon|calabresa|carne|lombo|peru|presunto|churrasco|charque/.test(s.r)],["queijos","🧀 Queijos",s=>/catupiry|cheddar|provolone/.test(s.r)||/queijo/i.test(s.n)],["atum","🐟 Atum",s=>/atum/.test(s.r)],["picante","🌶️ Picantes",s=>/pimenta|calabresa/.test(s.r)],["doce","🍫 Doces",s=>s.c==="d"]];
+function voar(el,s){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const a=el.getBoundingClientRect(),b=$("#pizza").getBoundingClientRect(),f=document.createElement("span"),x0=a.left+a.width/2,y0=a.top+24,dx=b.left+b.width/2-x0,dy=b.top+b.height/2-y0;
+  f.textContent=emos(s.r)[0];f.style.cssText=`position:fixed;left:${x0}px;top:${y0}px;font-size:34px;z-index:99;pointer-events:none`;document.body.appendChild(f);
+  f.animate([{transform:"translate(-50%,-50%) scale(1)"},{transform:`translate(calc(-50% + ${dx/2}px),calc(-50% + ${dy/2-80}px)) scale(1.7) rotate(180deg)`,offset:.5},{transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(.6) rotate(360deg)`}],{duration:560,easing:"ease-in-out"}).onfinish=()=>f.remove()}
 const precoPz=()=>W.tam?W.tam.p+(W.borda?CFG.borda:0):0;
 function wizard(){
   const p=Math.min(W.passo,4);
@@ -404,20 +454,22 @@ function wizard(){
     el.innerHTML=`<h2>Qual o tamanho?</h2><p class="dica">Quanto maior a pizza, mais sabores você mistura.</p><div class="grade">${TAM.map((x,i)=>`<button class="op ${t===x?"sel":""}" data-tam="${i}"><b>${x.n}</b><small>${x.f} fatias</small><small>${x.s} sabor${x.s>1?"es":""}</small><div class="p">${R$(x.p)}</div></button>`).join("")}</div>
     <div class="nav"><span></span><button class="btn" id="nx" ${t?"":"disabled"}>Escolher sabores</button></div>`;
   }else if(p===2){
-    const full=W.sab.length>=t.s,q=W.q.toLowerCase();
-    const l=SAB.filter(s=>s.c===W.tab&&(s.n+" "+s.r).toLowerCase().includes(q));
-    el.innerHTML=`<h2>Escolha ${t.s} sabor${t.s>1?"es":""} <span style="font-size:1.4rem;opacity:.7">(${W.sab.length}/${t.s})</span></h2>
-    <div class="tabs"><button class="tab ${W.tab==="s"?"on":""}" data-tab="s">Salgadas</button><button class="tab ${W.tab==="d"?"on":""}" data-tab="d">Doces</button></div>
-    <input type="search" id="busca" placeholder="Buscar sabor ou ingrediente" value="${esc(W.q)}" aria-label="Buscar">
-    <div class="lista">${l.map(s=>{const on=W.sab.includes(s);return `<button class="sab ${on?"sel":""}" data-sab="${s.id}" ${full&&!on?"disabled":""}><i>${String(s.id).padStart(2,"0")}</i><span><b>${esc(s.n)}</b><small>${esc(descr(s))}</small></span></button>`}).join("")||"<p>Nenhum sabor encontrado.</p>"}</div>
-    <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-p="1">Voltar</button><button class="btn" id="nx" ${full?"":"disabled"}>Escolher borda</button></div>`;
+    const full=W.sab.length>=t.s,q=W.q.toLowerCase(),cat=W.cat||"todos",C=CATS.find(c=>c[0]===cat),sc=$(".lista")?$(".lista").scrollTop:0;
+    const l=SAB.filter(s=>C[2](s)&&(s.n+" "+s.r).toLowerCase().includes(q));
+    el.innerHTML=`<h2>Escolha ${t.s} sabor${t.s>1?"es":""}</h2>
+    <div class="slots">${Array.from({length:t.s},(_,i)=>`<span class="slot ${W.sab[i]?"ok":""}">${W.sab[i]?emos(W.sab[i].r)[0]+" "+esc(W.sab[i].n):"? sabor "+(i+1)}</span>`).join("")}</div>
+    <div class="cats">${CATS.map(c=>`<button class="tab ${c[0]===cat?"on":""}" data-cat="${c[0]}">${c[1]}</button>`).join("")}</div>
+    <div class="rowb"><input type="search" id="busca" placeholder="Buscar sabor ou ingrediente" value="${esc(W.q)}" aria-label="Buscar"><button class="btn sm" data-sorte="1" ${full?"disabled":""}>🎲 Surpreenda-me</button></div>
+    <div class="lista g2">${l.map(s=>{const i=W.sab.indexOf(s);return `<button class="sc2 ${i>=0?"sel":""} ${full?"cheio":""}" data-sab="${s.id}"><span class="e">${emos(s.r).slice(0,3).join("")}</span><b>${esc(s.n)}</b><small>${esc(s.r)}</small>${i>=0?`<i class="ck">${i+1}</i>`:""}</button>`}).join("")||"<p>Nenhum sabor encontrado.</p>"}</div>
+    <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-p="1">Voltar</button>${W.sab.length?`<button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-limpar="1">Limpar</button>`:""}<button class="btn" id="nx" ${full?"":"disabled"}>Escolher borda</button></div>`;
+    $(".lista").scrollTop=sc;
     if(W.q){const b=$("#busca");b.focus();b.setSelectionRange(99,99)}
   }else if(p===3){
     el.innerHTML=`<h2>Vai de borda recheada?</h2><p class="dica">Adicional de ${R$(CFG.borda)} para borda recheada.</p><div class="grade">
     ${[["","Sem borda","grátis"],["Catupiry","Borda de catupiry","+ "+R$(CFG.borda)],["Cheddar","Borda de cheddar","+ "+R$(CFG.borda)]].map(b=>`<button class="op ${W.borda===b[0]?"sel":""}" data-borda="${b[0]}"><b>${b[1]}</b><div class="p">${b[2]}</div></button>`).join("")}</div>
     <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-p="2">Voltar</button><button class="btn" id="nx">Adicionar ao pedido</button></div>`;
   }else{
-    el.innerHTML=`<h2>Pizza no pedido! Bora de bebida?</h2><p class="dica">Para acompanhar. Se não quiser, é só seguir.</p><div class="bebs">${BEB.map((b,i)=>`<div class="beb"><div>${b[0]}<small>${R$(b[1])}</small></div><div class="q"><button data-bm="${i}" aria-label="Menos">−</button><b>${qtdB(b[0])}</b><button data-bp="${i}" aria-label="Mais">+</button></div></div>`).join("")}</div>
+    el.innerHTML=`<h2>Pizza no pedido! Bora de bebida?</h2><p class="dica">Para acompanhar. Se não quiser, é só seguir.</p><div class="bebs">${BEB.map((b,i)=>`<div class="beb ${qtdB(b[0])?"tem":""}"><div>${b[2].includes(".")?`<img src="${b[2]}" alt="${b[0]}">`:`<div class="em2">${b[2]}</div>`}</div><div><b>${b[0]}</b><small>${R$(b[1])}</small></div><div class="q"><button data-bm="${i}" aria-label="Menos">−</button><b>${qtdB(b[0])}</b><button data-bp="${i}" aria-label="Mais">+</button></div></div>`).join("")}</div>
     <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" id="outra">+ Outra pizza</button><button class="btn" data-go="pedido">Finalizar pedido</button></div>`;
   }
 }
@@ -425,9 +477,13 @@ const qtdB=n=>(cart.find(c=>c.nome===n)||{qtd:0}).qtd;
 $("#passo").addEventListener("click",e=>{
   const d=e.target.closest("button");if(!d)return;const D=d.dataset;
   if(D.tam!==undefined){W.tam=TAM[+D.tam];W.sab=W.sab.slice(0,W.tam.s);W.ultimo=-1;if(W.pref&&!W.sab.length){W.sab=[W.pref];W.ultimo=0}W.pref=null;wizard()}
-  else if(D.tab){W.tab=D.tab;wizard()}
+  else if(D.cat!==undefined){W.cat=D.cat;wizard()}
+  else if(D.sorte){const livres=SAB.filter(x=>!W.sab.includes(x)&&x.c==="s");while(W.sab.length<W.tam.s)W.sab.push(livres.splice(Math.floor(Math.random()*livres.length),1)[0]);W.ultimo=W.sab.length-1;wizard();burst(innerWidth/2,innerHeight/2)}
+  else if(D.limpar){W.sab=[];W.ultimo=-1;wizard()}
   else if(D.sab){const s=SAB.find(x=>x.id===+D.sab),i=W.sab.indexOf(s);
-    if(i>=0){W.sab.splice(i,1);W.ultimo=-1}else if(W.sab.length<W.tam.s){W.sab.push(s);W.ultimo=W.sab.length-1}wizard()}
+    if(i>=0){W.sab.splice(i,1);W.ultimo=-1;wizard()}
+    else if(W.sab.length<W.tam.s){voar(d,s);W.sab.push(s);W.ultimo=W.sab.length-1;toast(`${emos(s.r)[0]} ${s.n} (${W.sab.length}/${W.tam.s})`);setTimeout(wizard,420)}
+    else{const g=$(".stage");g.classList.remove("treme");void g.offsetWidth;g.classList.add("treme");toast("Pizza cheia! Toque num sabor escolhido para trocar")}}
   else if(D.borda!==undefined){W.borda=D.borda;wizard()}
   else if(D.p){W.passo=+D.p;wizard()}
   else if(d.id==="nx"){
@@ -460,14 +516,85 @@ $("#itens").onclick=e=>{const d=e.target.closest("button")?.dataset;if(!d)return
   if(d.m!==undefined){const c=cart[+d.m];if(--c.qtd<1)cart.splice(+d.m,1)}else if(d.pl!==undefined)cart[+d.pl].qtd++;else return;save();renderPedido()};
 $("#resumo").onclick=e=>{if(e.target.id==="resg"){usar=e.target.checked;renderPedido()}if(e.target.closest("[data-go]"))e.preventDefault()};
 $("#fPag").onchange=e=>$("#trocoBox").hidden=e.target.value!=="Dinheiro";
+const DB={
+  u:()=>CFG.firebase.replace(/\/$/,""),
+  async put(id,o){if(DB.u()){const r=await fetch(`${DB.u()}/pedidos/${id}.json`,{method:"PUT",body:JSON.stringify(o)});if(!r.ok)throw 0}else{const a=ler("p7ped",{});a[id]=o;gravar("p7ped",a)}},
+  async patch(id,o){if(DB.u()){await fetch(`${DB.u()}/pedidos/${id}.json`,{method:"PATCH",body:JSON.stringify(o)})}else{const a=ler("p7ped",{});a[id]={...a[id],...o};gravar("p7ped",a)}},
+  async get(id){if(DB.u()){const r=await fetch(`${DB.u()}/pedidos/${id}.json`,{cache:"no-store"});return r.json()}return ler("p7ped",{})[id]||null},
+  async all(){if(DB.u()){const r=await fetch(`${DB.u()}/pedidos.json`,{cache:"no-store"});return r.json()}return ler("p7ped",{})}
+};
+const fone=t=>{t=String(t).replace(/\D/g,"");return t.length<=11?"55"+t:t};
+function msgZap(o){const c=o.cli;
+  return `🍕 *NOVO PEDIDO #${o.id}* 🍕\n━━━━━━━━━━━━━━\n🛒 *ITENS*\n`+o.itens.map(i=>`▪️ ${i.qtd}x ${i.nome}${i.det?` _(${i.det})_`:""} — ${R$(i.preco*i.qtd)}`).join("\n")+
+  `\n━━━━━━━━━━━━━━\n💵 Subtotal: ${R$(o.sub)}\n`+(o.taxa?`🛵 Entrega: ${R$(o.taxa)}\n`:"")+(o.desc?`🎁 Desconto (pontos): -${R$(o.desc)}\n`:"")+`💰 *TOTAL: ${R$(o.total)}*\n━━━━━━━━━━━━━━\n👤 *CLIENTE*\n${c.nome}\n📱 ${c.tel}\n\n📍 *ENTREGA*\n${c.rua}, ${c.bairro}\n📌 Ref.: ${c.ref}\n\n💳 *PAGAMENTO:* ${c.pag}${c.troco?` (troco para ${c.troco})`:""}`}
+function mandaEmail(o){
+  if(!/^[^@\s]+@[^@\s]+$/.test(CFG.email)||/SEU_EMAIL/.test(CFG.email))return;const c=o.cli;
+  fetch("https://formsubmit.co/ajax/"+CFG.email,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({_subject:`🍕 Novo pedido #${o.id} – ${R$(o.total)}`,_template:"box",_captcha:"false",
+    "Pedido":"#"+o.id,"Itens":o.itens.map(i=>`${i.qtd}x ${i.nome}${i.det?` (${i.det})`:""} = ${R$(i.preco*i.qtd)}`).join(" || "),"Total":R$(o.total),"Cliente":c.nome,"Telefone":c.tel,"Endereço":`${c.rua}, ${c.bairro}`,"Ponto de referência":c.ref,"Pagamento":c.pag+(c.troco?` (troco para ${c.troco})`:"")})}).catch(()=>{})}
 $("#form").onsubmit=e=>{e.preventDefault();
-  const s=sub(),dc=usar?CFG.desc:0,total=s-dc+CFG.taxa;
-  let m="*Novo pedido – Pizzaria 7 Mil*\n\n";cart.forEach(c=>m+=`• ${c.qtd}x ${c.nome}${c.det?` (${c.det})`:""} – ${R$(c.preco*c.qtd)}\n`);
-  m+=`\nSubtotal: ${R$(s)}\n`+(CFG.taxa?`Entrega: ${R$(CFG.taxa)}\n`:"")+(dc?`Desconto (pontos): -${R$(dc)}\n`:"")+`*Total: ${R$(total)}*\n\n*Cliente:* ${$("#fNome").value}\n*Telefone:* ${$("#fTel").value}\n*Endereço:* ${$("#fRua").value}, ${$("#fBairro").value}\n*Referência:* ${$("#fRef").value}\n*Pagamento:* ${$("#fPag").value}`;
-  if($("#fPag").value==="Dinheiro"&&$("#fTroco").value)m+=` (troco para ${$("#fTroco").value})`;
-  if(user){user.pontos+=Math.floor(total*CFG.ptsReal)-(usar?CFG.meta:0);gravar("p7u",user);const a=ler("p7a",{});a[user.tel]=user;gravar("p7a",a);}
-  window.open(`https://wa.me/${CFG.zap}?text=${encodeURIComponent(m)}`,"_blank");
-  cart=[];usar=false;save();renderLogin();toast("Pedido enviado!");go("home")};
+  const s=sub(),dc=usar?CFG.desc:0,total=s-dc+CFG.taxa,id="7M"+Math.random().toString(36).slice(2,6).toUpperCase(),p=$("#fPag").value;
+  const o={id,t:Date.now(),status:"novo",uid:user?user.tel:null,pts:Math.floor(total*CFG.ptsReal),itens:cart.map(c=>({...c})),sub:s,desc:dc,taxa:CFG.taxa,total,
+    cli:{nome:$("#fNome").value,tel:$("#fTel").value,rua:$("#fRua").value,bairro:$("#fBairro").value,ref:$("#fRef").value,pag:p,troco:p==="Dinheiro"?$("#fTroco").value:""}};
+  if(user&&usar){user.pontos-=CFG.meta;gravar("p7u",user);const a=ler("p7a",{});a[user.tel]=user;gravar("p7a",a)}
+  window.open("https://wa.me/"+CFG.zap+"?text="+encodeURIComponent(msgZap(o)),"_blank");
+  gravar("p7atual",id);gravar("p7o",o);ultSt=null;
+  DB.put(id,o).catch(()=>toast("Não consegui avisar o painel. Confirme pelo WhatsApp."));
+  mandaEmail(o);cart=[];usar=false;save();renderLogin();trkUpd();go("espera")};
+
+/* ===== SALA DE ESPERA ===== */
+let ultSt=null;
+const trkUpd=()=>{$("#trk").hidden=!ler("p7atual",null)};
+function bip(d){try{const c=new(window.AudioContext||webkitAudioContext)(),t=c.currentTime;(d?[0,.2]:[0]).forEach((x,i)=>{const s=c.createOscillator(),g=c.createGain();s.frequency.value=i?880:660;g.gain.value=.15;s.connect(g);g.connect(c.destination);s.start(t+x);s.stop(t+x+.15)})}catch(e){}}
+function creditar(o){const c=ler("p7cred",[]);if(c.includes(o.id)||!user||(o.uid&&o.uid!==user.tel))return false;
+  user.pontos+=o.pts;gravar("p7u",user);const a=ler("p7a",{});a[user.tel]=user;gravar("p7a",a);c.push(o.id);gravar("p7cred",c);renderLogin();return true}
+const TXT={novo:["⏳","Pedido enviado!","Já avisamos a pizzaria. Assim que ela aceitar, você vê aqui na hora."],aceito:["👨‍🍳","Pedido aceito!","A pizzaria aceitou. Sua pizza já está sendo preparada com carinho."],saiu:["🛵","Saiu para entrega!","O entregador está a caminho do seu endereço. Fique de olho!"],chegou:["🎉","Chegou! Bom apetite!",""],cancelado:["😕","Pedido cancelado","Fale com a gente pelo WhatsApp para entender o que houve."]};
+function desenhaEspera(o){
+  const k=["novo","aceito","saiu","chegou"].indexOf(o.status),t=TXT[o.status]||TXT.novo,festa=o.status==="chegou",nome=esc(o.cli.nome.split(" ")[0]);
+  $("#sala").classList.toggle("festa",festa);
+  let pts="";
+  if(festa){const novo=creditar(o),ja=ler("p7cred",[]).includes(o.id);
+    pts=ja?`<div class="pts2"><b id="cnt2">+0</b> pontos<br>${novo?"Somados agora na sua conta!":"Já somados na sua conta ✅"} ${user?`Total: <b style="font-size:1.4rem">${user.pontos}</b>`:""}</div>`
+      :`<div class="pts2">Você ganhou <b>+${o.pts}</b> pontos!<br><button class="btn rx sm" data-go="conta" style="margin-top:8px">Entrar para receber</button></div>`}
+  $("#ep").innerHTML=`<span class="bi i-${o.status}">${t[0]}</span><h2>${festa?`Chegou, ${nome}!`:t[1]}</h2><p>${festa?`Obrigado por pedir na Pizzaria 7 Mil. Bom apetite! 🍕`:t[2]}</p>
+  ${o.status==="cancelado"?"":`<div class="tl">${["Enviado","Aceito","A caminho","Entregue"].map((n,i)=>`<div class="st ${i<k?"ok":i===k?"on":""}"><span>${["📨","✅","🛵","🏠"][i]}</span>${n}</div>`).join("")}</div>`}
+  ${o.status==="saiu"?`<div class="rua"><span class="moto"><i>🛵</i></span><span class="casa">🏠</span></div>`:""}${pts}
+  <div class="res"><b>Pedido #${o.id}</b>${o.itens.map(i=>`<div><span>${i.qtd}x ${esc(i.nome)}</span><span>${R$(i.preco*i.qtd)}</span></div>`).join("")}<div><b>Total</b><b>${R$(o.total)}</b></div><div><span>📍 ${esc(o.cli.rua)}</span><span>${esc(o.cli.pag)}</span></div></div>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px">${festa||o.status==="cancelado"?`<button class="btn rx" data-fim="montar">Pedir de novo</button><a class="btn g" style="color:#6a2fd0;border-color:#6a2fd0" href="https://www.instagram.com/martins7mil2018/" target="_blank" rel="noopener">📸 Siga no Instagram</a><button class="btn g" style="color:#6a2fd0;border-color:#6a2fd0" data-fim="home">Início</button>`:`<a class="btn rx sm" href="https://wa.me/${CFG.zap}" target="_blank" rel="noopener">Falar com a pizzaria</a>`}</div>`;
+  if(festa){const c=$("#conf");if(!c.children.length)for(let i=0;i<30;i++){const x=document.createElement("span");x.textContent=["🎉","🟣","⭐","🎊","🧀","🍕"][i%6];x.style.cssText=`left:${Math.random()*100}%;animation-duration:${3+Math.random()*4}s;animation-delay:${-Math.random()*6}s`;c.appendChild(x)}
+    const n=$("#cnt2");if(n){const t0=performance.now();(function f(t){const p=Math.min((t-t0)/1500,1);n.textContent="+"+Math.round(o.pts*p);if(p<1)requestAnimationFrame(f)})(t0)}}
+  else $("#conf").innerHTML="";
+}
+async function renderEspera(){
+  const id=ler("p7atual",null);
+  if(!id){$("#ep").innerHTML=`<span class="bi">🍕</span><h2>Nenhum pedido em andamento</h2><p>Monte sua pizza e acompanhe tudo por aqui.</p><button class="btn rx" data-fim="montar" style="margin-top:10px">Montar pizza</button>`;return}
+  let o=ler("p7o",null);
+  try{const r=await DB.get(id);if(r){o=r;gravar("p7o",o)}}catch(e){}
+  if(!o)return;
+  if(o.status!==ultSt){if(ultSt!==null){bip();navigator.vibrate&&navigator.vibrate(250);toast((TXT[o.status]||TXT.novo)[1])}ultSt=o.status;desenhaEspera(o)}
+}
+$("#ep").addEventListener("click",e=>{const b=e.target.closest("[data-fim]");if(b){gravar("p7atual",null);gravar("p7o",null);ultSt=null;trkUpd();go(b.dataset.fim)}});
+
+/* ===== PAINEL DA PIZZARIA (index.html#painel) ===== */
+let pOk=false,vistos=null;
+const ST={novo:["🆕 Novo","aceito","✅ Aceitar pedido"],aceito:["👨‍🍳 Preparando","saiu","🛵 Saiu para entrega"],saiu:["🛵 A caminho","chegou","🏠 Chegou ao cliente"],chegou:["✅ Entregue"],cancelado:["❌ Cancelado"]};
+async function renderPainel(){
+  const el=$("#pn");
+  if(!pOk){el.innerHTML=`<div class="card"><h2>Painel da pizzaria</h2><label class="lab" for="pin">Senha</label><input type="tel" id="pin" autocomplete="off"><button class="btn" id="pinOk" style="width:100%;margin-top:14px">Entrar</button></div>`;return}
+  let all={};try{all=await DB.all()||{}}catch(e){el.innerHTML="<p>Erro ao carregar pedidos.</p>";return}
+  const l=Object.values(all).filter(o=>o&&o.id&&Date.now()-o.t<864e5).sort((a,b)=>b.t-a.t);
+  if(vistos===null)vistos=new Set(l.map(o=>o.id));else{if(l.some(o=>o.status==="novo"&&!vistos.has(o.id))){bip(true);toast("🍕 Novo pedido!")}l.forEach(o=>vistos.add(o.id))}
+  el.innerHTML=`<h2 class="tit" style="font-size:2.8rem;color:var(--o)">Pedidos das últimas 24h</h2>${CFG.firebase?"":`<p class="aviso">Modo teste: os pedidos só aparecem neste navegador. Configure o Firebase para funcionar entre aparelhos.</p>`}
+  <div class="pn">${l.map(o=>{const c=o.cli,st=ST[o.status]||ST.novo;return `<div class="po ${o.status==="novo"?"novo":""}"><div class="row"><h3>#${o.id}</h3><span class="stt">${st[0]}</span></div><small>${new Date(o.t).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}</small><hr>
+  ${o.itens.map(i=>`<div class="row"><span>${i.qtd}x ${esc(i.nome)}${i.det?`<br><small>${esc(i.det)}</small>`:""}</span><b>${R$(i.preco*i.qtd)}</b></div>`).join("")}<hr><div class="row"><b>Total</b><b>${R$(o.total)}</b></div><div>💳 ${esc(c.pag)}${c.troco?` (troco p/ ${esc(c.troco)})`:""}</div><hr>
+  <div>👤 <b>${esc(c.nome)}</b> · <a href="https://wa.me/${fone(c.tel)}" target="_blank" rel="noopener" style="color:var(--r);font-weight:800">${esc(c.tel)}</a></div><div>📍 ${esc(c.rua)}, ${esc(c.bairro)}</div><div>📌 ${esc(c.ref)}</div>
+  <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">${st[1]?`<button class="btn sm" data-st="${o.id}:${st[1]}">${st[2]}</button>`:""}${o.status==="novo"?`<button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-st="${o.id}:cancelado">Recusar</button>`:""}</div></div>`}).join("")||"<p>Nenhum pedido ainda.</p>"}</div>`;
+}
+$("#pn").addEventListener("click",async e=>{
+  if(e.target.id==="pinOk"){if($("#pin").value===CFG.pin){pOk=true;bip();renderPainel()}else toast("Senha incorreta");return}
+  const b=e.target.closest("[data-st]");if(b){const[id,st]=b.dataset.st.split(":");await DB.patch(id,{status:st,[st+"T"]:Date.now()});renderPainel()}});
+setInterval(()=>{if($("#v-espera").classList.contains("on"))renderEspera();if($("#v-painel").classList.contains("on")&&pOk)renderPainel()},4000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&$("#v-espera").classList.contains("on"))renderEspera()});
+function rota(){if(location.hash==="#painel")go("painel")}addEventListener("hashchange",rota);
 
 /* ===== CONTA ===== */
 function renderLogin(){$("#loginBtn").textContent=user?`★ ${user.pontos} pts`:"Entrar"}
@@ -535,7 +662,7 @@ $("#inicio").addEventListener("mousemove",e=>document.body.style.setProperty("--
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.15});
 document.querySelectorAll(".rv").forEach(e=>io.observe(e));
 document.querySelectorAll("[data-n]").forEach(el=>{const n=+el.dataset.n,t0=performance.now();(function f(t){const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)});
-$("#ano").textContent=new Date().getFullYear();$("#waF").href="https://wa.me/"+CFG.zap;
+trkUpd();rota();$("#ano").textContent=new Date().getFullYear();$("#waF").href="https://wa.me/"+CFG.zap;
 </script>
 </body>
 </html>
