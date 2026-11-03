@@ -3,465 +3,370 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pizzaria 7 Mil – Qualidade em cada fatia | Monte Negro, Camaçari</title>
-<meta name="description" content="Peça pizza online na Pizzaria 7 Mil, em Monte Negro (Cascalheira), Camaçari-BA. Cardápio completo, borda recheada e entrega.">
+<title>Pizzaria 7 Mil – Monte sua pizza | Monte Negro, Camaçari</title>
 <link rel="icon" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--vinho:#2b0606;--vermelho:#c80f0f;--vermelho2:#e11d1d;--ouro:#f5b041;--creme:#fff3e0;--texto:#2b1a14;--ok:#1f8f4e}
+:root{--v:#2b0606;--v2:#4a0b0b;--r:#d11414;--o:#f5b041;--c:#fff3e0;--t:#2b1a14}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:'Nunito',sans-serif;background:var(--creme);color:var(--texto);line-height:1.5}
+body{font-family:Nunito,sans-serif;color:var(--c);background:radial-gradient(circle at 85% -10%,#9c0e0e,transparent 55%),var(--v);min-height:100vh;line-height:1.45}
 h1,h2,h3,.tit{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;line-height:1}
-button{font:inherit;cursor:pointer;border:0}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--ouro);outline-offset:2px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
-header{position:sticky;top:0;z-index:20;background:var(--vinho);color:var(--creme)}
-header .wrap{display:flex;align-items:center;gap:14px;height:64px}
-header img{height:46px;width:46px;border-radius:50%;object-fit:cover}
-header nav{display:flex;gap:18px;margin-left:auto;font-weight:800;font-size:.95rem}
-header nav a{text-decoration:none}
-header nav a:hover{color:var(--ouro)}
-.btn{background:var(--vermelho);color:#fff;padding:10px 18px;border-radius:999px;font-weight:800}
-.btn:hover{background:var(--vermelho2)}
-.btn.ouro{background:var(--ouro);color:var(--vinho)}
-.btn.ghost{background:transparent;border:2px solid var(--ouro);color:var(--ouro)}
-.btn[disabled]{opacity:.5;cursor:not-allowed}
-#cartBtn{position:relative}
-#cartCount{background:var(--ouro);color:var(--vinho);border-radius:999px;padding:0 7px;margin-left:6px;font-size:.85rem}
-.hero{background:radial-gradient(circle at 80% 20%,#8f0c0c,var(--vinho) 70%);color:var(--creme);padding:44px 0 56px}
-.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);margin-bottom:14px}
-.hero p{max-width:44ch;margin-bottom:22px;opacity:.92}
-.hero img{width:100%;max-width:380px;justify-self:center;border-radius:50%;box-shadow:0 0 0 6px var(--ouro)}
-.hero .acoes{display:flex;gap:10px;flex-wrap:wrap}
-section{padding:48px 0}
-section h2{font-size:clamp(2rem,5vw,3rem);color:var(--vermelho);margin-bottom:6px}
-.sub{margin-bottom:20px;opacity:.8}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-.tabs{display:flex;gap:8px}
-.tab{background:#fff;border:2px solid var(--vermelho);color:var(--vermelho);padding:8px 16px;border-radius:999px;font-weight:800}
-.tab[aria-selected=true]{background:var(--vermelho);color:#fff}
-#busca{flex:1;min-width:200px;padding:10px 16px;border:2px solid #e3c9a8;border-radius:999px;font:inherit;background:#fff}
-.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.item{background:#fff;border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;border:2px solid transparent;text-align:left;width:100%;transition:border-color .15s,transform .15s}
-.item:hover{border-color:var(--vermelho);transform:translateY(-2px)}
-.num{background:var(--vermelho);color:#fff;border-radius:8px;min-width:36px;height:36px;display:grid;place-items:center;font-weight:800;font-size:.9rem}
-.item b{display:block;font-size:1.02rem}
-.item small{color:#6b4f43;display:block}
-.item .preco{margin-left:auto;font-weight:800;color:var(--vermelho);white-space:nowrap;text-align:right;font-size:.9rem}
-.vazio{padding:24px;text-align:center;opacity:.7}
-.bebidas{background:var(--vinho);color:var(--creme)}
-.bebidas h2{color:var(--ouro)}
-.bebidas .item{background:#4a0d0d;color:var(--creme)}
-.bebidas .item small{color:#e9c9b3}
-.bebidas .item .preco{color:var(--ouro)}
-.hist{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-.hist p{margin-bottom:12px}
-.contato .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
-.card{background:#fff;border-radius:14px;padding:18px}
-.card b{display:block;margin-bottom:4px;color:var(--vermelho)}
-footer{background:var(--vinho);color:var(--creme);text-align:center;padding:24px 18px;font-size:.9rem}
-/* modal e carrinho */
-.fundo{position:fixed;inset:0;background:rgba(20,0,0,.6);z-index:30;display:none;align-items:center;justify-content:center;padding:14px}
-.fundo.on{display:flex}
-.painel{background:var(--creme);border-radius:18px;width:100%;max-width:480px;max-height:92vh;overflow:auto;padding:22px;position:relative}
-.painel h3{font-size:2rem;color:var(--vermelho)}
-.fechar{position:absolute;top:10px;right:12px;background:none;font-size:1.6rem;color:var(--vinho)}
-fieldset{border:0;margin:14px 0}
-legend{font-weight:800;margin-bottom:6px}
-.op{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #e3c9a8;border-radius:12px;padding:10px 12px;margin-bottom:6px;cursor:pointer}
-.op:has(input:checked){border-color:var(--vermelho);background:#ffe9e0}
-.op span:last-child{margin-left:auto;font-weight:800}
-.qtd{display:inline-flex;align-items:center;gap:10px}
-.qtd button{width:34px;height:34px;border-radius:50%;background:var(--vermelho);color:#fff;font-weight:800;font-size:1.1rem}
-input[type=text],input[type=tel],select,textarea{width:100%;padding:10px 12px;border:2px solid #e3c9a8;border-radius:10px;font:inherit;background:#fff}
-label.campo{display:block;font-weight:800;margin-top:10px;font-size:.92rem}
-.gaveta{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--creme);z-index:40;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
-.gaveta.on{transform:none}
-.gaveta header{position:static}
-.gaveta .corpo{flex:1;overflow:auto;padding:16px}
-.linha{display:flex;gap:10px;align-items:flex-start;background:#fff;border-radius:12px;padding:10px 12px;margin-bottom:8px}
-.linha small{color:#6b4f43;display:block}
-.linha .dir{margin-left:auto;text-align:right;font-weight:800;white-space:nowrap}
-.tot{display:flex;justify-content:space-between;font-weight:800;padding:3px 0}
-.tot.g{font-size:1.3rem;color:var(--vermelho)}
-.pts{background:#fff7d6;border:2px solid var(--ouro);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:.92rem}
-.aviso{font-size:.85rem;opacity:.75;margin-top:8px}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ok);color:#fff;padding:10px 18px;border-radius:999px;font-weight:800;z-index:60;transition:transform .25s}
-#toast.on{transform:translateX(-50%)}
-@media(max-width:720px){.hero .wrap,.hist{grid-template-columns:1fr}.hero img{max-width:240px;order:-1}header nav a.n{display:none}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+button{font:inherit;cursor:pointer;border:0;color:inherit}
+:focus-visible{outline:3px solid var(--o);outline-offset:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:20;background:rgba(43,6,6,.94);backdrop-filter:blur(6px);border-bottom:2px solid var(--r)}
+header .wrap{display:flex;align-items:center;gap:10px;height:64px}
+header img{height:46px;border-radius:50%;cursor:pointer}
+.sp{margin-left:auto}
+.btn{background:var(--r);color:#fff;padding:12px 22px;border-radius:999px;font-weight:800;transition:transform .15s,background .15s}
+.btn:hover:not([disabled]){background:#ee2222;transform:translateY(-2px)}
+.btn.o{background:var(--o);color:var(--v)}
+.btn.g{background:transparent;border:2px solid var(--o);color:var(--o)}
+.btn.sm{padding:7px 14px;font-size:.9rem}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.badge{background:var(--o);color:var(--v);border-radius:999px;padding:0 8px;margin-left:6px;font-size:.85rem}
+.view{display:none;padding:30px 0 60px}
+.view.on{display:block;animation:entra .45s ease}
+@keyframes entra{from{opacity:0;transform:translateY(24px)}}
+/* home */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;min-height:62vh}
+.hero h1{font-size:clamp(3rem,9vw,5.6rem);margin-bottom:16px}
+.hero h1 em{color:var(--o)}
+.hero p{max-width:42ch;margin-bottom:24px;opacity:.9}
+.gira{animation:gira 50s linear infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5))}
+@keyframes gira{to{transform:rotate(360deg)}}
+.faixa{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.faixa span{border:2px solid var(--o);border-radius:999px;padding:4px 14px;font-weight:700;font-size:.9rem}
+.sec{background:var(--c);color:var(--t);border-radius:24px;padding:30px;margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sec h2{color:var(--r);font-size:2.6rem;margin-bottom:10px}
+.sec p{margin-bottom:10px}
+.sec a{color:var(--r);font-weight:800}
+/* montar */
+.prog{display:flex;gap:6px;margin-bottom:22px}
+.prog div{flex:1;text-align:center;font-weight:800;font-size:.85rem;opacity:.45;border-bottom:4px solid #6b1a1a;padding-bottom:6px;transition:.3s}
+.prog div.on{opacity:1;border-color:var(--o)}
+.prog div.ok{opacity:.9;border-color:#3fbf6b}
+.build{display:grid;grid-template-columns:minmax(260px,.9fr) 1.1fr;gap:26px;align-items:start}
+.stage{position:sticky;top:84px;background:var(--v2);border-radius:24px;padding:18px;text-align:center}
+.stage svg{width:100%;max-width:340px}
+.stage .preco{font-family:'Barlow Condensed';font-style:italic;font-weight:800;font-size:2.2rem;color:var(--o)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0}
+.chip{background:var(--c);color:var(--t);border-radius:999px;padding:3px 6px 3px 12px;font-weight:700;font-size:.85rem}
+.chip button{background:var(--r);color:#fff;border-radius:50%;width:20px;height:20px;margin-left:4px;line-height:1}
+.painel{background:var(--c);color:var(--t);border-radius:24px;padding:24px}
+.painel h2{color:var(--r);font-size:2.2rem;margin-bottom:4px}
+.dica{opacity:.75;margin-bottom:14px}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px}
+.op{background:#fff;border:3px solid #ecd5b3;border-radius:16px;padding:14px 10px;text-align:center;color:var(--t);transition:.15s}
+.op:hover{border-color:var(--r);transform:translateY(-3px)}
+.op.sel{border-color:var(--r);background:#ffe6dc;box-shadow:0 6px 0 var(--r)}
+.op b{display:block;font-size:1.1rem}.op small{display:block;opacity:.8}.op .p{color:var(--r);font-weight:800;margin-top:4px}
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+.tab{background:#fff;border:2px solid var(--r);color:var(--r);padding:6px 14px;border-radius:999px;font-weight:800}
+.tab.on{background:var(--r);color:#fff}
+input[type=text],input[type=tel],input[type=search],select,textarea{width:100%;padding:11px 14px;border:2px solid #e3c9a8;border-radius:12px;font:inherit;background:#fff;color:var(--t)}
+.lista{max-height:340px;overflow:auto;margin-top:10px;padding-right:4px;display:grid;gap:6px}
+.sab{display:flex;gap:10px;align-items:center;background:#fff;border:2px solid #ecd5b3;border-radius:12px;padding:8px 12px;text-align:left;color:var(--t);width:100%}
+.sab:hover:not([disabled]){border-color:var(--r)}
+.sab.sel{border-color:var(--r);background:#ffe6dc}
+.sab[disabled]{opacity:.4}
+.sab i{font-style:normal;background:var(--r);color:#fff;border-radius:8px;min-width:32px;height:32px;display:grid;place-items:center;font-size:.8rem;font-weight:800}
+.sab small{display:block;opacity:.75;font-size:.8rem}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.bebs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.beb{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #ecd5b3;border-radius:14px;padding:10px 12px}
+.beb div{flex:1;font-weight:700}.beb small{display:block;color:var(--r)}
+.q{display:flex;align-items:center;gap:8px}
+.q button{width:30px;height:30px;border-radius:50%;background:var(--r);color:#fff;font-weight:800}
+/* conta e pedido */
+.card{background:var(--c);color:var(--t);border-radius:24px;padding:26px;max-width:520px;margin:0 auto}
+.card h2{color:var(--r);font-size:2.4rem;margin-bottom:8px}
+.lab{display:block;font-weight:800;margin:12px 0 4px;font-size:.9rem}
+.anel{position:relative;width:200px;margin:10px auto}
+.anel b{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-family:'Barlow Condensed';font-style:italic;font-size:3.4rem;color:var(--r);line-height:1}
+.anel small{display:block;font-family:Nunito;font-style:normal;font-size:.85rem;color:var(--t)}
+.ped{max-width:640px}
+.lin{display:flex;gap:10px;background:#fff;border-radius:12px;padding:10px 12px;margin-bottom:8px;align-items:center}
+.lin div:first-child{flex:1}.lin small{display:block;opacity:.7}
+.tot{display:flex;justify-content:space-between;font-weight:800;padding:2px 0}
+.tot.g{font-size:1.5rem;color:var(--r)}
+.pts{background:#fff4c9;border:2px solid var(--o);border-radius:12px;padding:10px 12px;margin:10px 0}
+.aviso{font-size:.82rem;opacity:.7;margin-top:8px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,90px);background:#1f8f4e;color:#fff;padding:10px 20px;border-radius:999px;font-weight:800;z-index:50;transition:.3s}
+#toast.on{transform:translate(-50%,0)}
+.nova{transform-origin:150px 150px;animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{from{opacity:0;transform:scale(.5) rotate(-20deg)}}
+@media(max-width:760px){.hero,.build,.sec{grid-template-columns:1fr}.stage{position:static}.hero .gira{max-width:260px;margin:0 auto;order:-1}.nl{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<header><div class="wrap">
+  <img src="logo.png" alt="Pizzaria 7 Mil" data-go="home">
+  <span class="tit nl" style="font-size:1.5rem">Pizzaria 7 Mil</span>
+  <button class="btn g sm sp" data-go="conta" id="loginBtn">Entrar</button>
+  <button class="btn o sm" data-go="pedido">Pedido<span class="badge" id="cnt">0</span></button>
+</div></header>
 
-<header>
-  <div class="wrap">
-    <img src="logo.png" alt="Logo Pizzaria 7 Mil">
-    <span class="tit" style="font-size:1.4rem">Pizzaria 7 Mil</span>
-    <nav>
-      <a class="n" href="#cardapio">Cardápio</a>
-      <a class="n" href="#bebidas">Bebidas</a>
-      <a class="n" href="#historia">Nossa história</a>
-      <a class="n" href="#contato">Contato</a>
-      <button class="btn ghost" id="loginBtn">Entrar</button>
-      <button class="btn ouro" id="cartBtn">Carrinho<span id="cartCount">0</span></button>
-    </nav>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="wrap">
+<main class="wrap">
+<!-- HOME -->
+<section class="view on" id="v-home">
+  <div class="hero">
     <div>
-      <h1>Qualidade em cada fatia!</h1>
-      <p>Pizzas saborosas, preço acessível e entrega em Monte Negro e Cascalheira. Escolha o sabor, a borda e peça pelo site. Cada pedido rende pontos.</p>
-      <div class="acoes">
-        <a class="btn ouro" href="#cardapio" style="text-decoration:none">Ver cardápio</a>
-        <a class="btn ghost" href="#contato" style="text-decoration:none">Falar com a gente</a>
-      </div>
+      <h1>Monte a sua <em>pizza</em> do seu jeito</h1>
+      <p>Escolha o tamanho, misture os sabores, capriche na borda e receba em casa. Em Monte Negro e Cascalheira, com preço que cabe no bolso.</p>
+      <button class="btn o" data-go="montar" style="font-size:1.15rem;padding:15px 30px">Montar minha pizza</button>
+      <div class="faixa" style="margin-top:22px"><span>36 sabores</span><span>Borda recheada</span><span>Ganhe pontos</span></div>
     </div>
-    <img src="logo.png" alt="Pizzaria 7 Mil">
+    <div class="gira" id="heroPizza"></div>
   </div>
-</div>
-
-<section id="cardapio">
-  <div class="wrap">
-    <h2>Cardápio</h2>
-    <p class="sub">Toque no sabor para escolher tamanho e borda.</p>
-    <div class="tools">
-      <div class="tabs" role="tablist">
-        <button class="tab" role="tab" data-cat="salgada" aria-selected="true">Pizzas especiais</button>
-        <button class="tab" role="tab" data-cat="doce" aria-selected="false">Pizzas doces</button>
-      </div>
-      <input id="busca" type="search" placeholder="Buscar sabor ou ingrediente (ex.: frango, bacon)" aria-label="Buscar sabor">
-    </div>
-    <div class="lista" id="lista"></div>
-  </div>
-</section>
-
-<section id="bebidas" class="bebidas">
-  <div class="wrap">
-    <h2>Bebidas</h2>
-    <p class="sub">Para acompanhar a pizza.</p>
-    <div class="lista" id="listaBebidas"></div>
-  </div>
-</section>
-
-<section id="historia">
-  <div class="wrap hist">
+  <div class="sec" id="historia">
     <div>
       <h2>Nossa história</h2>
       <p>A Pizzaria 7 Mil nasceu com o propósito de levar sabor, qualidade e carinho à mesa de cada cliente. Ao longo de sua trajetória, vem conquistando seu espaço em Camaçari, na Bahia, especialmente na região de Monte Negro e Cascalheira.</p>
+      <p>Com presença nas redes sociais desde 2018, a pizzaria construiu sua identidade valorizando aquilo que realmente importa: pizzas saborosas, preços acessíveis e um atendimento próximo de seus clientes.</p>
     </div>
     <div>
-      <p style="margin-top:46px">Com presença nas redes sociais desde 2018, a pizzaria construiu sua identidade valorizando aquilo que realmente importa: pizzas saborosas, preços acessíveis e um atendimento próximo de seus clientes.</p>
-      <p>Mais do que preparar pizzas, nosso objetivo é proporcionar bons momentos, reunir famílias e amigos e fazer com que cada pedido chegue à sua casa com muito sabor e qualidade.</p>
+      <p style="margin-top:6px">Mais do que preparar pizzas, nosso objetivo é proporcionar bons momentos, reunir famílias e amigos e fazer com que cada pedido chegue à sua casa com muito sabor e qualidade.</p>
       <p><b>Pizzaria 7 Mil — qualidade em cada fatia!</b></p>
+      <h2 style="margin-top:18px;font-size:2rem">Contato</h2>
+      <p>WhatsApp: <a id="zap" target="_blank" rel="noopener" href="#">(71) 8116-0304</a><br>Monte Negro (Cascalheira), Camaçari – BA</p>
     </div>
   </div>
 </section>
 
-<section id="contato" class="contato" style="padding-top:0">
-  <div class="wrap">
-    <h2>Contato</h2>
-    <div class="cards">
-      <div class="card"><b>WhatsApp</b><a id="zapLink" href="#" target="_blank" rel="noopener">(71) 8116-0304</a></div>
-      <div class="card"><b>Endereço</b>Monte Negro (Cascalheira)<br>Camaçari – BA</div>
-      <div class="card"><b>Telefone</b><a href="tel:+5571981160304">(71) 8116-0304</a></div>
+<!-- MONTAR -->
+<section class="view" id="v-montar">
+  <div class="prog" id="prog"></div>
+  <div class="build">
+    <div class="stage">
+      <div id="pizza"></div>
+      <div class="chips" id="chips"></div>
+      <div class="preco" id="stPreco"></div>
     </div>
+    <div class="painel" id="passo"></div>
   </div>
 </section>
 
-<footer>© <span id="ano"></span> Pizzaria 7 Mil · Monte Negro, Camaçari – BA</footer>
+<!-- CONTA -->
+<section class="view" id="v-conta"><div class="card" id="conta"></div></section>
 
-<!-- Modal de pizza -->
-<div class="fundo" id="modalPizza" role="dialog" aria-modal="true" aria-labelledby="pzNome">
-  <div class="painel">
-    <button class="fechar" data-fechar aria-label="Fechar">×</button>
-    <h3 id="pzNome"></h3>
-    <p id="pzRecheio" style="opacity:.8"></p>
-    <fieldset><legend>Tamanho</legend><div id="pzTamanhos"></div></fieldset>
-    <fieldset><legend>Borda</legend><div id="pzBordas"></div></fieldset>
-    <label class="campo" for="pzObs">Observação (opcional)</label>
-    <textarea id="pzObs" rows="2" placeholder="Ex.: sem cebola"></textarea>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:10px">
-      <div class="qtd"><button id="pzMenos" aria-label="Menos">−</button><b id="pzQtd">1</b><button id="pzMais" aria-label="Mais">+</button></div>
-      <button class="btn" id="pzAdd"></button>
-    </div>
-  </div>
-</div>
-
-<!-- Modal de login -->
-<div class="fundo" id="modalLogin" role="dialog" aria-modal="true" aria-labelledby="lgTit">
-  <div class="painel">
-    <button class="fechar" data-fechar aria-label="Fechar">×</button>
-    <h3 id="lgTit">Entrar e ganhar pontos</h3>
-    <div id="lgOff">
-      <p style="margin:8px 0">A cada R$ 1,00 em pedidos você ganha 1 ponto. Com <span class="pt-meta"></span> pontos, ganha desconto no próximo pedido.</p>
-      <label class="campo" for="lgNome">Seu nome</label><input type="text" id="lgNome" autocomplete="name">
-      <label class="campo" for="lgTel">WhatsApp</label><input type="tel" id="lgTel" placeholder="71 90000-0000" autocomplete="tel">
-      <button class="btn" id="lgEntrar" style="width:100%;margin-top:16px">Entrar</button>
-      <p class="aviso">Seus dados ficam salvos só neste aparelho.</p>
-    </div>
-    <div id="lgOn" hidden>
-      <p style="margin:8px 0">Olá, <b id="lgOla"></b>!</p>
-      <div class="pts"><span class="tit" style="font-size:2.4rem;color:var(--vermelho)" id="lgPts">0</span> pontos<br><span id="lgFalta"></span></div>
-      <button class="btn ghost" id="lgSair" style="width:100%;margin-top:16px;color:var(--vermelho);border-color:var(--vermelho)">Sair</button>
-    </div>
-  </div>
-</div>
-
-<!-- Carrinho -->
-<div class="fundo" id="fundoCarrinho" style="z-index:35"></div>
-<aside class="gaveta" id="gaveta" aria-label="Carrinho">
-  <header><div class="wrap" style="padding:0 16px"><span class="tit" style="font-size:1.6rem">Seu pedido</span><button class="fechar" style="position:static;margin-left:auto;color:var(--creme)" data-fechar-carrinho aria-label="Fechar">×</button></div></header>
-  <div class="corpo">
-    <div id="itens"></div>
-    <div id="resumo"></div>
-    <form id="form" hidden>
-      <h3 style="font-size:1.6rem;margin:18px 0 0;color:var(--vermelho)">Dados da entrega</h3>
-      <label class="campo" for="fNome">Nome</label><input type="text" id="fNome" required autocomplete="name">
-      <label class="campo" for="fTel">Telefone / WhatsApp</label><input type="tel" id="fTel" required autocomplete="tel">
-      <label class="campo" for="fRua">Rua e número</label><input type="text" id="fRua" required>
-      <label class="campo" for="fBairro">Bairro</label><input type="text" id="fBairro" value="Monte Negro" required>
-      <label class="campo" for="fRef">Ponto de referência</label><input type="text" id="fRef" placeholder="Ex.: perto da padaria" required>
-      <label class="campo" for="fPag">Forma de pagamento</label>
-      <select id="fPag"><option>Pix</option><option>Dinheiro</option><option>Cartão de débito</option><option>Cartão de crédito</option></select>
-      <div id="trocoBox" hidden><label class="campo" for="fTroco">Troco para quanto?</label><input type="text" id="fTroco" placeholder="Ex.: 100"></div>
-      <button class="btn" type="submit" style="width:100%;margin-top:16px;padding:14px">Enviar pedido pelo WhatsApp</button>
-      <p class="aviso">O pedido abre no WhatsApp da pizzaria já preenchido. Confirme o envio por lá.</p>
-    </form>
-  </div>
-</aside>
-
+<!-- PEDIDO -->
+<section class="view" id="v-pedido"><div class="card ped">
+  <h2>Seu pedido</h2>
+  <div id="itens"></div><div id="resumo"></div>
+  <form id="form" hidden>
+    <h2 style="font-size:1.9rem;margin-top:18px">Entrega</h2>
+    <label class="lab" for="fNome">Nome</label><input type="text" id="fNome" required autocomplete="name">
+    <label class="lab" for="fTel">Telefone / WhatsApp</label><input type="tel" id="fTel" required autocomplete="tel">
+    <label class="lab" for="fRua">Rua e número</label><input type="text" id="fRua" required>
+    <label class="lab" for="fBairro">Bairro</label><input type="text" id="fBairro" value="Monte Negro" required>
+    <label class="lab" for="fRef">Ponto de referência</label><input type="text" id="fRef" required placeholder="Ex.: perto da padaria">
+    <label class="lab" for="fPag">Forma de pagamento</label>
+    <select id="fPag"><option>Pix</option><option>Dinheiro</option><option>Cartão de débito</option><option>Cartão de crédito</option></select>
+    <div id="trocoBox" hidden><label class="lab" for="fTroco">Troco para quanto?</label><input type="text" id="fTroco"></div>
+    <button class="btn" style="width:100%;margin-top:18px;padding:15px" type="submit">Enviar pedido pelo WhatsApp</button>
+    <p class="aviso">O pedido abre no WhatsApp da pizzaria já preenchido. É só confirmar o envio.</p>
+  </form>
+  <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-go="montar" id="maisPizza">+ Montar outra pizza</button></div>
+</div></section>
+</main>
 <div id="toast" role="status"></div>
 
 <script>
-/* ============ CONFIGURAÇÃO (edite aqui) ============ */
-const CONFIG = {
-  whatsapp: "5571981160304",
-  taxaEntrega: 0,            // taxa de entrega em R$
-  precoBorda: 5,             // borda recheada
-  pontosPorReal: 1,          // pontos ganhos por R$ 1
-  metaPontos: 100,           // pontos para trocar por desconto
-  descontoResgate: 10        // desconto em R$ ao trocar a meta
-};
-/* PREÇOS DE EXEMPLO: troque pelos valores reais da pizzaria */
-const TAMANHOS = {
-  salgada: [{n:"Média (6 fatias)",p:35},{n:"Grande (8 fatias)",p:45}],
-  doce:    [{n:"Média (6 fatias)",p:38},{n:"Grande (8 fatias)",p:48}]
-};
-const BEBIDAS = [
-  {n:"Coca-Cola 2 L",p:14},{n:"Guaraná 2 L",p:12},{n:"Refrigerante 1 L",p:8},
-  {n:"Refrigerante lata 350 ml",p:6},{n:"Suco natural (copo)",p:7},{n:"Água mineral 500 ml",p:3}
-];
-const SALGADAS = [
-["Frango","Molho, mussarela, frango e orégano"],["Frango Catupiry","Molho, mussarela, frango, catupiry e orégano"],
-["Frango Cheddar","Molho, mussarela, frango, cheddar e orégano"],["Calabresa","Molho, mussarela, calabresa, cebola e orégano"],
-["Apoiana","Molho, mussarela, tomate e orégano"],["Marquerita","Molho, mussarela, tomate, manjericão e orégano"],
-["Milho","Molho, mussarela, milho e orégano"],["Baiana","Molho, mussarela, calabresa, pimenta e orégano"],
-["Cheia","Molho, mussarela, pimenta e orégano"],["Vegetariana","Molho, mussarela, milho, ervilha, tomate e orégano"],
-["Dois Queijos","Molho, mussarela, catupiry e orégano"],["Atum","Molho, mussarela, atum, cebola e orégano"],
-["Atum Especial","Molho, mussarela, atum, cebola, catupiry e orégano"],["Atum Chic","Molho, mussarela, atum, cebola, cheddar e orégano"],
-["Nordestina","Molho, mussarela, bacon, milho, cebola e orégano"],["Churrasco","Molho, mussarela, churrasco, cebola, bacon, pimenta e orégano"],
-["Baiana Especial","Molho, mussarela, calabresa, cebola, bacon, pimenta calabresa e orégano"],["Peito de Peru","Molho, mussarela, peito de peru e orégano"],
-["Petu Chic","Molho, mussarela, peito de peru, cheddar e orégano"],["Lombinho","Molho, mussarela, lombo, tomate, cebola e orégano"],
-["Lombinho Especial","Molho, mussarela, lombo, catupiry, cheddar e orégano"],["Quatro Queijos","Molho, mussarela, cheddar, provolone e orégano"],
-["Três Queijos","Molho, mussarela, cheddar, provolone e orégano"],["Moda da Casa","Molho, mussarela, catupiry, calabresa, cebola, azeitona e orégano"],
-["Portuguesa","Molho, mussarela, presunto, calabresa, tomate, pimentão e orégano"],["Carne do Sol","Molho, mussarela, carne do sol, cebola, azeitona e orégano"],
-["Peito de Frango","Molho, mussarela, peito de frango desfiado, cebola, tomate e azeitona"],["Peito Duro","Molho, mussarela, peito de frango desfiado, bacon, milho e orégano"],
-["Charque e Banana","Molho, mussarela, charque, banana da terra, cebola e orégano"],["Carne do Sol c/ Banana","Molho, mussarela, carne do sol, banana da terra, cebola e orégano"],
-["Frango com Milho","Molho, mussarela, frango, milho e orégano"],["Bacon","Molho, mussarela, bacon, cebola e orégano"]
-];
-const DOCES = [
-["Belinho","Mussarela, leite condensado, coco ralado"],["Romeu e Julieta","Mussarela e goiabada"],
-["Brigadeiro","Mussarela, chocolate e granulado"],["Banana com Chocolate","Mussarela, leite condensado e banana"]
-];
-const SABORES = [
-  ...SALGADAS.map((s,i)=>({id:i+1,n:s[0],r:s[1],c:"salgada"})),
-  ...DOCES.map((s,i)=>({id:33+i,n:s[0],r:s[1],c:"doce"}))
-];
+/* ===== CONFIGURAÇÃO (edite aqui) ===== */
+const CFG={zap:"5571981160304",taxa:0,borda:5,ptsReal:1,meta:100,desc:10};
+const TAM=[ /* preços de exemplo: troque pelos reais */
+ {n:"Broto",f:4,s:1,p:25},{n:"Média",f:6,s:2,p:35},{n:"Grande",f:8,s:3,p:45},{n:"Família",f:12,s:4,p:60}];
+const BEB=[["Coca-Cola 2 L",14],["Guaraná 2 L",12],["Refrigerante 1 L",8],["Refrigerante lata",6],["Suco natural",7],["Água mineral",3]];
+const SAL=`Frango|frango
+Frango Catupiry|frango, catupiry
+Frango Cheddar|frango, cheddar
+Calabresa|calabresa, cebola
+Apoiana|tomate
+Marquerita|tomate, manjericão
+Milho|milho
+Baiana|calabresa, pimenta
+Cheia|pimenta
+Vegetariana|milho, ervilha, tomate
+Dois Queijos|catupiry
+Atum|atum, cebola
+Atum Especial|atum, cebola, catupiry
+Atum Chic|atum, cebola, cheddar
+Nordestina|bacon, milho, cebola
+Churrasco|churrasco, cebola, bacon, pimenta
+Baiana Especial|calabresa, cebola, bacon, pimenta calabresa
+Peito de Peru|peito de peru
+Petu Chic|peito de peru, cheddar
+Lombinho|lombo, tomate, cebola
+Lombinho Especial|lombo, catupiry, cheddar
+Quatro Queijos|cheddar, provolone
+Três Queijos|cheddar, provolone
+Moda da Casa|catupiry, calabresa, cebola, azeitona
+Portuguesa|presunto, calabresa, tomate, pimentão
+Carne do Sol|carne do sol, cebola, azeitona
+Peito de Frango|peito de frango desfiado, cebola, tomate, azeitona
+Peito Duro|peito de frango desfiado, bacon, milho
+Charque e Banana|charque, banana da terra, cebola
+Carne do Sol c/ Banana|carne do sol, banana da terra, cebola
+Frango com Milho|frango, milho
+Bacon|bacon, cebola`.split("\n");
+const DOC=`Belinho|leite condensado, coco ralado
+Romeu e Julieta|goiabada
+Brigadeiro|chocolate e granulado
+Banana com Chocolate|leite condensado e banana`.split("\n");
+const SAB=[...SAL.map((l,i)=>({id:i+1,n:l.split("|")[0],r:l.split("|")[1],c:"s"})),...DOC.map((l,i)=>({id:33+i,n:l.split("|")[0],r:l.split("|")[1],c:"d"}))];
+const COR={frango:"#f0d9a0",calabresa:"#b5301f",bacon:"#a8442a",catupiry:"#fff6dc",cheddar:"#f08a1c",tomate:"#e63a2b",milho:"#f7d83a",atum:"#d6a58c",presunto:"#f0a3a3",peru:"#ecbab6",lombo:"#c98265",carne:"#8a4b32",charque:"#8a4b32",banana:"#f8e27a",azeitona:"#33331f",ervilha:"#7cb342",cebola:"#f4e8f5",pimenta:"#d32f2f",provolone:"#fff0b3",chocolate:"#4e2a1e",goiabada:"#b3164f",coco:"#fff",leite:"#fff8e1",manjeric:"#2e7d32",churrasco:"#7a3b2a",pimentão:"#43a047"};
+const corTop=r=>{const c=Object.keys(COR).filter(k=>r.includes(k)).map(k=>COR[k]);return c.length?c:["#f6e3b0"]};
 
-/* ============ UTILITÁRIOS ============ */
-const $=s=>document.querySelector(s);
-const R$=v=>"R$ "+v.toFixed(2).replace(".",",");
+/* ===== UTIL ===== */
+const $=s=>document.querySelector(s),R$=v=>"R$ "+v.toFixed(2).replace(".",",");
 const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function ler(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}}
-function gravar(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+const ler=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const gravar=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1800)}
+let cart=ler("p7c",[]),user=ler("p7u",null),usar=false;
+let W={passo:1,tam:null,sab:[],borda:"",tab:"s",q:"",ultimo:-1};
+const descr=s=>s.c==="s"?`Molho, mussarela, ${s.r} e orégano`:`Mussarela, ${s.r}`;
 
-let carrinho=ler("p7_carrinho",[]);
-let usuario=ler("p7_usuario",null);
-let cat="salgada",atual=null,qtd=1;
-
-/* ============ CARDÁPIO ============ */
-function renderLista(){
-  const q=$("#busca").value.trim().toLowerCase();
-  const itens=SABORES.filter(s=>s.c===cat&&(s.n+" "+s.r).toLowerCase().includes(q));
-  const base=TAMANHOS[cat][0].p;
-  $("#lista").innerHTML=itens.length?itens.map(s=>`
-    <button class="item" data-id="${s.id}">
-      <span class="num">${String(s.id).padStart(2,"0")}</span>
-      <span><b>${esc(s.n)}</b><small>${esc(s.r)}</small></span>
-      <span class="preco">a partir de<br>${R$(base)}</span>
-    </button>`).join(""):`<p class="vazio">Nenhum sabor encontrado. Tente outra palavra.</p>`;
+/* ===== PIZZA SVG ===== */
+const pt=(a,r)=>[150+r*Math.cos(a*Math.PI/180),150+r*Math.sin(a*Math.PI/180)].map(v=>v.toFixed(1));
+function pizzaSVG(n,fl,borda,fat,nova){
+  let s=`<svg viewBox="0 0 300 300" role="img" aria-label="Pizza sendo montada"><defs><radialGradient id="qj"><stop offset="0" stop-color="#ffdc82"/><stop offset="1" stop-color="#f2b53f"/></radialGradient></defs>
+  <circle cx="150" cy="150" r="146" fill="#cf9150"/><circle cx="150" cy="150" r="146" fill="none" stroke="#a46a2e" stroke-width="3"/><circle cx="150" cy="150" r="124" fill="#c4231a"/>`;
+  const span=360/n;
+  for(let i=0;i<n;i++){
+    const a0=-90+i*span,a1=a0+span,p0=pt(a0,124),p1=pt(a1,124),f=fl[i];
+    const d=n===1?`M150 26A124 124 0 1 1 149.9 26Z`:`M150 150L${p0}A124 124 0 ${span>180?1:0} 1 ${p1}Z`;
+    if(!f){const m=pt(a0+span/2,70);
+      s+=`<path d="${d}" fill="rgba(255,255,255,.1)" stroke="#fff" stroke-opacity=".6" stroke-dasharray="6 5" stroke-width="2"/><text x="${m[0]}" y="${+m[1]+10}" text-anchor="middle" font-size="30" fill="#fff" fill-opacity=".7" font-family="Barlow Condensed">?</text>`;continue}
+    let x=f.id*977+i*131;const rnd=()=>(x=x*16807%2147483647)/2147483647,cs=corTop(f.r);
+    s+=`<g class="${i===nova?"nova":""}"><path d="${d}" fill="url(#qj)"/>`;
+    for(let k=0;k<(n===1?16:n===2?10:7);k++){const rr=24+rnd()*92,aa=a0+(n===1?0:4)+rnd()*(span-(n===1?0:8)),q=pt(aa,rr);
+      s+=`<circle cx="${q[0]}" cy="${q[1]}" r="${(5+rnd()*5).toFixed(1)}" fill="${cs[k%cs.length]}" stroke="rgba(0,0,0,.25)"/>`}
+    s+=`</g>`;
+  }
+  for(let k=0;k<fat;k++){const q=pt(-90+k*360/fat,124);s+=`<line x1="150" y1="150" x2="${q[0]}" y2="${q[1]}" stroke="#5a2410" stroke-opacity=".4" stroke-width="1.5"/>`}
+  if(borda)s+=`<circle cx="150" cy="150" r="134" fill="none" stroke="${borda==="Catupiry"?"#fff3d1":"#f59a1c"}" stroke-width="13" stroke-opacity=".92"/>`;
+  return s+"</svg>";
 }
-document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
-  cat=b.dataset.cat;
-  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===b));
-  renderLista();
+
+/* ===== NAVEGAÇÃO ===== */
+function go(v){
+  document.querySelectorAll(".view").forEach(e=>e.classList.toggle("on",e.id==="v-"+v));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(v==="montar")wizard();if(v==="conta")renderConta();if(v==="pedido")renderPedido();
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(!b)return;
+  if(b.dataset.go==="montar"&&b.id==="maisPizza")W={passo:1,tam:null,sab:[],borda:"",tab:"s",q:"",ultimo:-1};
+  if(b.dataset.go==="montar"&&b.id!=="maisPizza"&&W.passo===5)W={passo:1,tam:null,sab:[],borda:"",tab:"s",q:"",ultimo:-1};
+  go(b.dataset.go)});
+
+/* ===== MONTAGEM ===== */
+const PASSOS=["Tamanho","Sabores","Borda","Bebidas"];
+const precoPz=()=>W.tam?W.tam.p+(W.borda?CFG.borda:0):0;
+function wizard(){
+  const p=Math.min(W.passo,4);
+  $("#prog").innerHTML=PASSOS.map((n,i)=>`<div class="${i+1===p?"on":i+1<p?"ok":""}">${i+1<p?"✓ ":""}${n}</div>`).join("");
+  const t=W.tam;
+  $("#pizza").innerHTML=pizzaSVG(t?t.s:2,W.sab,W.borda,t?t.f:8,W.ultimo);
+  $("#chips").innerHTML=W.sab.map((s,i)=>`<span class="chip">${esc(s.n)}<button data-rm="${i}" aria-label="Remover ${esc(s.n)}">×</button></span>`).join("");
+  $("#stPreco").textContent=t?R$(precoPz()):"Escolha o tamanho";
+  const el=$("#passo");
+  if(p===1){
+    el.innerHTML=`<h2>Qual o tamanho?</h2><p class="dica">Quanto maior a pizza, mais sabores você mistura.</p><div class="grade">${TAM.map((x,i)=>`<button class="op ${t===x?"sel":""}" data-tam="${i}"><b>${x.n}</b><small>${x.f} fatias</small><small>${x.s} sabor${x.s>1?"es":""}</small><div class="p">${R$(x.p)}</div></button>`).join("")}</div>
+    <div class="nav"><span></span><button class="btn" id="nx" ${t?"":"disabled"}>Escolher sabores</button></div>`;
+  }else if(p===2){
+    const full=W.sab.length>=t.s,q=W.q.toLowerCase();
+    const l=SAB.filter(s=>s.c===W.tab&&(s.n+" "+s.r).toLowerCase().includes(q));
+    el.innerHTML=`<h2>Escolha ${t.s} sabor${t.s>1?"es":""} <span style="font-size:1.4rem;opacity:.7">(${W.sab.length}/${t.s})</span></h2>
+    <div class="tabs"><button class="tab ${W.tab==="s"?"on":""}" data-tab="s">Salgadas</button><button class="tab ${W.tab==="d"?"on":""}" data-tab="d">Doces</button></div>
+    <input type="search" id="busca" placeholder="Buscar sabor ou ingrediente" value="${esc(W.q)}" aria-label="Buscar">
+    <div class="lista">${l.map(s=>{const on=W.sab.includes(s);return `<button class="sab ${on?"sel":""}" data-sab="${s.id}" ${full&&!on?"disabled":""}><i>${String(s.id).padStart(2,"0")}</i><span><b>${esc(s.n)}</b><small>${esc(descr(s))}</small></span></button>`}).join("")||"<p>Nenhum sabor encontrado.</p>"}</div>
+    <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-p="1">Voltar</button><button class="btn" id="nx" ${full?"":"disabled"}>Escolher borda</button></div>`;
+    if(W.q){const b=$("#busca");b.focus();b.setSelectionRange(99,99)}
+  }else if(p===3){
+    el.innerHTML=`<h2>Vai de borda recheada?</h2><p class="dica">Adicional de ${R$(CFG.borda)} para borda recheada.</p><div class="grade">
+    ${[["","Sem borda","grátis"],["Catupiry","Borda de catupiry","+ "+R$(CFG.borda)],["Cheddar","Borda de cheddar","+ "+R$(CFG.borda)]].map(b=>`<button class="op ${W.borda===b[0]?"sel":""}" data-borda="${b[0]}"><b>${b[1]}</b><div class="p">${b[2]}</div></button>`).join("")}</div>
+    <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" data-p="2">Voltar</button><button class="btn" id="nx">Adicionar ao pedido</button></div>`;
+  }else{
+    el.innerHTML=`<h2>Pizza no pedido! Bora de bebida?</h2><p class="dica">Para acompanhar. Se não quiser, é só seguir.</p><div class="bebs">${BEB.map((b,i)=>`<div class="beb"><div>${b[0]}<small>${R$(b[1])}</small></div><div class="q"><button data-bm="${i}" aria-label="Menos">−</button><b>${qtdB(b[0])}</b><button data-bp="${i}" aria-label="Mais">+</button></div></div>`).join("")}</div>
+    <div class="nav"><button class="btn g sm" style="color:var(--r);border-color:var(--r)" id="outra">+ Outra pizza</button><button class="btn" data-go="pedido">Finalizar pedido</button></div>`;
+  }
+}
+const qtdB=n=>(cart.find(c=>c.nome===n)||{qtd:0}).qtd;
+$("#passo").addEventListener("click",e=>{
+  const d=e.target.closest("button");if(!d)return;const D=d.dataset;
+  if(D.tam!==undefined){W.tam=TAM[+D.tam];W.sab=W.sab.slice(0,W.tam.s);W.ultimo=-1;wizard()}
+  else if(D.tab){W.tab=D.tab;wizard()}
+  else if(D.sab){const s=SAB.find(x=>x.id===+D.sab),i=W.sab.indexOf(s);
+    if(i>=0){W.sab.splice(i,1);W.ultimo=-1}else if(W.sab.length<W.tam.s){W.sab.push(s);W.ultimo=W.sab.length-1}wizard()}
+  else if(D.borda!==undefined){W.borda=D.borda;wizard()}
+  else if(D.p){W.passo=+D.p;wizard()}
+  else if(d.id==="nx"){
+    if(W.passo===3){const nome=`Pizza ${W.tam.n}: ${W.sab.map(s=>s.n).join(" + ")}`;
+      cart.push({nome,det:W.borda?`Borda de ${W.borda.toLowerCase()}`:"Sem borda",preco:precoPz(),qtd:1});save();toast("Pizza adicionada!")}
+    W.passo++;wizard()}
+  else if(d.id==="outra"){W={passo:1,tam:null,sab:[],borda:"",tab:"s",q:"",ultimo:-1};wizard()}
+  else if(D.bp!==undefined||D.bm!==undefined){
+    const b=BEB[+(D.bp??D.bm)],c=cart.find(x=>x.nome===b[0]);
+    if(D.bp!==undefined){c?c.qtd++:cart.push({nome:b[0],det:"",preco:b[1],qtd:1})}
+    else if(c){c.qtd--;if(c.qtd<1)cart.splice(cart.indexOf(c),1)}
+    save();wizard()}
 });
-$("#busca").oninput=renderLista;
-$("#lista").onclick=e=>{const b=e.target.closest(".item");if(b)abrirPizza(+b.dataset.id)};
+$("#passo").addEventListener("input",e=>{if(e.target.id==="busca"){W.q=e.target.value;wizard()}});
+$("#chips").addEventListener("click",e=>{const b=e.target.closest("[data-rm]");if(b&&W.passo<3){W.sab.splice(+b.dataset.rm,1);W.ultimo=-1;if(W.passo===2)wizard();else{W.passo=2;wizard()}}});
 
-function renderBebidas(){
-  $("#listaBebidas").innerHTML=BEBIDAS.map((b,i)=>`
-    <button class="item" data-b="${i}"><span><b>${esc(b.n)}</b><small>Toque para adicionar</small></span><span class="preco">${R$(b.p)}</span></button>`).join("");
+/* ===== PEDIDO ===== */
+function save(){gravar("p7c",cart);$("#cnt").textContent=cart.reduce((s,c)=>s+c.qtd,0)}
+const sub=()=>cart.reduce((s,c)=>s+c.preco*c.qtd,0);
+function renderPedido(){
+  if(!cart.length){$("#itens").innerHTML=`<p style="margin:10px 0">Seu pedido está vazio. Monte sua primeira pizza!</p>`;$("#resumo").innerHTML="";$("#form").hidden=true;return}
+  $("#itens").innerHTML=cart.map((c,i)=>`<div class="lin"><div><b>${esc(c.nome)}</b><small>${esc(c.det)}</small></div><div class="q"><button data-m="${i}" aria-label="Menos">−</button><b>${c.qtd}</b><button data-pl="${i}" aria-label="Mais">+</button></div><b>${R$(c.preco*c.qtd)}</b></div>`).join("");
+  const s=sub(),pode=user&&user.pontos>=CFG.meta&&s>CFG.desc;if(!pode)usar=false;
+  const total=s-(usar?CFG.desc:0)+CFG.taxa;
+  $("#resumo").innerHTML=`<div class="tot"><span>Subtotal</span><span>${R$(s)}</span></div>${CFG.taxa?`<div class="tot"><span>Entrega</span><span>${R$(CFG.taxa)}</span></div>`:""}${usar?`<div class="tot"><span>Desconto (pontos)</span><span>− ${R$(CFG.desc)}</span></div>`:""}<div class="tot g"><span>Total</span><span>${R$(total)}</span></div>
+  <div class="pts">${user?(pode?`<label><input type="checkbox" id="resg" ${usar?"checked":""}> Usar ${CFG.meta} pontos e ganhar ${R$(CFG.desc)} de desconto</label>`:`Você tem <b>${user.pontos}</b> pontos. Este pedido rende +${Math.floor(total*CFG.ptsReal)}.`):`<a href="#" data-go="conta" style="color:var(--r);font-weight:800">Entre na sua conta</a> e ganhe +${Math.floor(total*CFG.ptsReal)} pontos neste pedido.`}</div>`;
+  $("#form").hidden=false;if(user){if(!$("#fNome").value)$("#fNome").value=user.nome;if(!$("#fTel").value)$("#fTel").value=user.tel}
 }
-$("#listaBebidas").onclick=e=>{
-  const b=e.target.closest(".item");if(!b)return;
-  const d=BEBIDAS[+b.dataset.b];
-  add({tipo:"bebida",nome:d.n,det:"",preco:d.p,qtd:1});
-};
-
-/* ============ MODAL PIZZA ============ */
-function abrirPizza(id){
-  atual=SABORES.find(s=>s.id===id);qtd=1;$("#pzQtd").textContent=1;$("#pzObs").value="";
-  $("#pzNome").textContent=`${String(id).padStart(2,"0")} · ${atual.n}`;
-  $("#pzRecheio").textContent=atual.r;
-  $("#pzTamanhos").innerHTML=TAMANHOS[atual.c].map((t,i)=>`
-    <label class="op"><input type="radio" name="tam" value="${i}" ${i===0?"checked":""}><span>${t.n}</span><span>${R$(t.p)}</span></label>`).join("");
-  $("#pzBordas").innerHTML=[["Sem borda",0],["Borda de catupiry",CONFIG.precoBorda],["Borda de cheddar",CONFIG.precoBorda]].map((b,i)=>`
-    <label class="op"><input type="radio" name="borda" value="${b[0]}" data-p="${b[1]}" ${i===0?"checked":""}><span>${b[0]}</span><span>${b[1]?"+ "+R$(b[1]):"grátis"}</span></label>`).join("");
-  $("#modalPizza").classList.add("on");atualizaPz();
-}
-function precoPz(){
-  const t=TAMANHOS[atual.c][+document.querySelector("[name=tam]:checked").value];
-  const b=document.querySelector("[name=borda]:checked");
-  return {t,b,unit:t.p+ +b.dataset.p};
-}
-function atualizaPz(){$("#pzAdd").textContent=`Adicionar · ${R$(precoPz().unit*qtd)}`}
-$("#modalPizza").addEventListener("change",atualizaPz);
-$("#pzMais").onclick=()=>{qtd++;$("#pzQtd").textContent=qtd;atualizaPz()};
-$("#pzMenos").onclick=()=>{if(qtd>1){qtd--;$("#pzQtd").textContent=qtd;atualizaPz()}};
-$("#pzAdd").onclick=()=>{
-  const {t,b,unit}=precoPz();
-  add({tipo:"pizza",nome:`${atual.n} (${t.n.split(" ")[0]})`,det:b.value+($("#pzObs").value.trim()?` · Obs: ${$("#pzObs").value.trim()}`:""),preco:unit,qtd});
-  fechar();
-};
-
-/* ============ CARRINHO ============ */
-function add(it){
-  const ex=carrinho.find(c=>c.nome===it.nome&&c.det===it.det);
-  ex?ex.qtd+=it.qtd:carrinho.push(it);
-  salvarCarrinho();toast("Adicionado ao carrinho");
-}
-function salvarCarrinho(){gravar("p7_carrinho",carrinho);renderCarrinho()}
-function subtotal(){return carrinho.reduce((s,c)=>s+c.preco*c.qtd,0)}
-let usarPontos=false;
-function renderCarrinho(){
-  $("#cartCount").textContent=carrinho.reduce((s,c)=>s+c.qtd,0);
-  if(!carrinho.length){$("#itens").innerHTML=`<p class="vazio">Seu carrinho está vazio. Escolha uma pizza no cardápio.</p>`;$("#resumo").innerHTML="";$("#form").hidden=true;return}
-  $("#itens").innerHTML=carrinho.map((c,i)=>`
-    <div class="linha"><div><b>${esc(c.nome)}</b><small>${esc(c.det)}</small>
-      <div class="qtd" style="margin-top:6px"><button data-m="${i}" aria-label="Menos">−</button><b>${c.qtd}</b><button data-p="${i}" aria-label="Mais">+</button></div></div>
-      <div class="dir">${R$(c.preco*c.qtd)}<br><button data-x="${i}" style="background:none;color:var(--vermelho);font-size:.8rem">remover</button></div></div>`).join("");
-  const sub=subtotal(),pts=usuario?usuario.pontos:0;
-  const pode=usuario&&pts>=CONFIG.metaPontos&&sub>CONFIG.descontoResgate;
-  if(!pode)usarPontos=false;
-  const desc=usarPontos?CONFIG.descontoResgate:0;
-  const total=sub-desc+CONFIG.taxaEntrega;
-  $("#resumo").innerHTML=`
-    <div class="tot"><span>Subtotal</span><span>${R$(sub)}</span></div>
-    ${CONFIG.taxaEntrega?`<div class="tot"><span>Entrega</span><span>${R$(CONFIG.taxaEntrega)}</span></div>`:""}
-    ${desc?`<div class="tot"><span>Desconto (pontos)</span><span>− ${R$(desc)}</span></div>`:""}
-    <div class="tot g"><span>Total</span><span>${R$(total)}</span></div>
-    <div class="pts">${usuario
-      ?(pode?`<label><input type="checkbox" id="resg" ${usarPontos?"checked":""}> Usar ${CONFIG.metaPontos} pontos e ganhar ${R$(CONFIG.descontoResgate)} de desconto</label>`
-        :`Você tem <b>${pts}</b> pontos. Este pedido rende +${Math.floor(total*CONFIG.pontosPorReal)}.`)
-      :`<button class="btn ouro" id="irLogin" type="button" style="padding:6px 14px">Entrar</button> para ganhar +${Math.floor(total*CONFIG.pontosPorReal)} pontos neste pedido.`}</div>`;
-  $("#form").hidden=false;
-  if(usuario){if(!$("#fNome").value)$("#fNome").value=usuario.nome;if(!$("#fTel").value)$("#fTel").value=usuario.tel}
-}
-$("#itens").onclick=e=>{
-  const d=e.target.dataset;
-  if(d.m!==undefined){const c=carrinho[+d.m];c.qtd--;if(c.qtd<1)carrinho.splice(+d.m,1)}
-  else if(d.p!==undefined)carrinho[+d.p].qtd++;
-  else if(d.x!==undefined)carrinho.splice(+d.x,1);
-  else return;
-  salvarCarrinho();
-};
-$("#resumo").onclick=e=>{
-  if(e.target.id==="resg"){usarPontos=e.target.checked;renderCarrinho()}
-  if(e.target.id==="irLogin"){fechar();$("#modalLogin").classList.add("on")}
-};
-$("#fPag").onchange=e=>{$("#trocoBox").hidden=e.target.value!=="Dinheiro"};
-$("#cartBtn").onclick=()=>{$("#gaveta").classList.add("on");$("#fundoCarrinho").classList.add("on")};
-function fecharCarrinho(){$("#gaveta").classList.remove("on");$("#fundoCarrinho").classList.remove("on")}
-$("#fundoCarrinho").onclick=fecharCarrinho;
-document.querySelector("[data-fechar-carrinho]").onclick=fecharCarrinho;
-
-/* ============ ENVIO WHATSAPP ============ */
-$("#form").onsubmit=e=>{
-  e.preventDefault();
-  const sub=subtotal(),desc=usarPontos?CONFIG.descontoResgate:0,total=sub-desc+CONFIG.taxaEntrega;
-  let m=`*Novo pedido – Pizzaria 7 Mil*\n\n`;
-  carrinho.forEach(c=>{m+=`• ${c.qtd}x ${c.nome}${c.det?` (${c.det})`:""} – ${R$(c.preco*c.qtd)}\n`});
-  m+=`\nSubtotal: ${R$(sub)}\n`;
-  if(CONFIG.taxaEntrega)m+=`Entrega: ${R$(CONFIG.taxaEntrega)}\n`;
-  if(desc)m+=`Desconto (pontos): -${R$(desc)}\n`;
-  m+=`*Total: ${R$(total)}*\n\n`;
-  m+=`*Cliente:* ${$("#fNome").value}\n*Telefone:* ${$("#fTel").value}\n`;
-  m+=`*Endereço:* ${$("#fRua").value}, ${$("#fBairro").value}\n*Referência:* ${$("#fRef").value}\n`;
-  m+=`*Pagamento:* ${$("#fPag").value}`;
+$("#itens").onclick=e=>{const d=e.target.closest("button")?.dataset;if(!d)return;
+  if(d.m!==undefined){const c=cart[+d.m];if(--c.qtd<1)cart.splice(+d.m,1)}else if(d.pl!==undefined)cart[+d.pl].qtd++;else return;save();renderPedido()};
+$("#resumo").onclick=e=>{if(e.target.id==="resg"){usar=e.target.checked;renderPedido()}if(e.target.closest("[data-go]"))e.preventDefault()};
+$("#fPag").onchange=e=>$("#trocoBox").hidden=e.target.value!=="Dinheiro";
+$("#form").onsubmit=e=>{e.preventDefault();
+  const s=sub(),dc=usar?CFG.desc:0,total=s-dc+CFG.taxa;
+  let m="*Novo pedido – Pizzaria 7 Mil*\n\n";cart.forEach(c=>m+=`• ${c.qtd}x ${c.nome}${c.det?` (${c.det})`:""} – ${R$(c.preco*c.qtd)}\n`);
+  m+=`\nSubtotal: ${R$(s)}\n`+(CFG.taxa?`Entrega: ${R$(CFG.taxa)}\n`:"")+(dc?`Desconto (pontos): -${R$(dc)}\n`:"")+`*Total: ${R$(total)}*\n\n*Cliente:* ${$("#fNome").value}\n*Telefone:* ${$("#fTel").value}\n*Endereço:* ${$("#fRua").value}, ${$("#fBairro").value}\n*Referência:* ${$("#fRef").value}\n*Pagamento:* ${$("#fPag").value}`;
   if($("#fPag").value==="Dinheiro"&&$("#fTroco").value)m+=` (troco para ${$("#fTroco").value})`;
-  if(usuario){
-    usuario.pontos=usuario.pontos-(usarPontos?CONFIG.metaPontos:0)+Math.floor(total*CONFIG.pontosPorReal);
-    gravar("p7_usuario",usuario);renderUsuario();
-  }
-  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(m)}`,"_blank");
-  carrinho=[];usarPontos=false;salvarCarrinho();fecharCarrinho();toast("Pedido enviado!");
-};
+  if(user){user.pontos+=Math.floor(total*CFG.ptsReal)-(usar?CFG.meta:0);gravar("p7u",user);const a=ler("p7a",{});a[user.tel]=user;gravar("p7a",a);}
+  window.open(`https://wa.me/${CFG.zap}?text=${encodeURIComponent(m)}`,"_blank");
+  cart=[];usar=false;save();renderLogin();toast("Pedido enviado!");go("home")};
 
-/* ============ LOGIN E PONTOS ============ */
-function renderUsuario(){
-  $("#loginBtn").textContent=usuario?`${usuario.pontos} pts`:"Entrar";
-  $("#lgOff").hidden=!!usuario;$("#lgOn").hidden=!usuario;
-  document.querySelectorAll(".pt-meta").forEach(e=>e.textContent=CONFIG.metaPontos);
-  if(usuario){
-    $("#lgOla").textContent=usuario.nome.split(" ")[0];$("#lgPts").textContent=usuario.pontos;
-    const f=CONFIG.metaPontos-usuario.pontos;
-    $("#lgFalta").textContent=f>0?`Faltam ${f} pontos para ganhar ${R$(CONFIG.descontoResgate)} de desconto.`:`Você já pode usar ${R$(CONFIG.descontoResgate)} de desconto no carrinho!`;
-  }
-  if($("#gaveta"))renderCarrinho();
+/* ===== CONTA ===== */
+function renderLogin(){$("#loginBtn").textContent=user?`★ ${user.pontos} pts`:"Entrar"}
+function renderConta(){
+  const el=$("#conta");
+  if(!user){el.innerHTML=`<h2>Entre e ganhe pontos</h2><p>A cada R$ 1,00 em pedidos você ganha 1 ponto. Com ${CFG.meta} pontos, ganha ${R$(CFG.desc)} de desconto.</p>
+  <label class="lab" for="lN">Seu nome</label><input type="text" id="lN" autocomplete="name"><label class="lab" for="lT">WhatsApp com DDD</label><input type="tel" id="lT" placeholder="71 90000-0000" autocomplete="tel">
+  <button class="btn" id="lOk" style="width:100%;margin-top:18px;padding:14px">Entrar</button><p class="aviso">Seus pontos ficam salvos neste aparelho.</p>`;return}
+  const pc=Math.min(user.pontos/CFG.meta,1),C=2*Math.PI*80;
+  el.innerHTML=`<h2>Olá, ${esc(user.nome.split(" ")[0])}!</h2>
+  <div class="anel"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="#ecd5b3" stroke-width="16"/><circle cx="100" cy="100" r="80" fill="none" stroke="#d11414" stroke-width="16" stroke-linecap="round" stroke-dasharray="${C*pc} ${C}" transform="rotate(-90 100 100)" style="transition:stroke-dasharray 1s"/></svg><b>${user.pontos}<small>pontos</small></b></div>
+  <p style="text-align:center">${user.pontos>=CFG.meta?`Você já pode usar ${R$(CFG.desc)} de desconto no pedido!`:`Faltam ${CFG.meta-user.pontos} pontos para ganhar ${R$(CFG.desc)} de desconto.`}</p>
+  <button class="btn" data-go="montar" style="width:100%;margin-top:16px">Montar pizza</button>
+  <button class="btn g" id="lOut" style="width:100%;margin-top:10px;color:var(--r);border-color:var(--r)">Sair</button>`;
 }
-$("#loginBtn").onclick=()=>$("#modalLogin").classList.add("on");
-$("#lgEntrar").onclick=()=>{
-  const nome=$("#lgNome").value.trim(),tel=$("#lgTel").value.replace(/\D/g,"");
-  if(nome.length<2||tel.length<10){toast("Informe nome e WhatsApp com DDD");return}
-  const todos=ler("p7_contas",{});
-  usuario=todos[tel]||{nome,tel,pontos:0};usuario.nome=nome;
-  todos[tel]=usuario;gravar("p7_contas",todos);gravar("p7_usuario",usuario);
-  renderUsuario();fechar();toast(`Bem-vindo, ${nome.split(" ")[0]}!`);
-};
-$("#lgSair").onclick=()=>{
-  const todos=ler("p7_contas",{});if(usuario)todos[usuario.tel]=usuario;gravar("p7_contas",todos);
-  usuario=null;try{localStorage.removeItem("p7_usuario")}catch(e){}renderUsuario();fechar();
+$("#conta").onclick=e=>{
+  if(e.target.id==="lOk"){const n=$("#lN").value.trim(),t=$("#lT").value.replace(/\D/g,"");
+    if(n.length<2||t.length<10){toast("Informe nome e WhatsApp com DDD");return}
+    const a=ler("p7a",{});user=a[t]||{nome:n,tel:t,pontos:0};user.nome=n;a[t]=user;gravar("p7a",a);gravar("p7u",user);renderLogin();renderConta();toast("Bem-vindo!")}
+  if(e.target.id==="lOut"){user=null;try{localStorage.removeItem("p7u")}catch(x){}renderLogin();renderConta()}
 };
 
-/* ============ FECHAR MODAIS ============ */
-function fechar(){document.querySelectorAll(".fundo.on:not(#fundoCarrinho)").forEach(f=>f.classList.remove("on"))}
-document.querySelectorAll("[data-fechar]").forEach(b=>b.onclick=fechar);
-document.querySelectorAll(".fundo:not(#fundoCarrinho)").forEach(f=>f.onclick=e=>{if(e.target===f)fechar()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){fechar();fecharCarrinho()}});
-
-/* ============ INICIO ============ */
-$("#ano").textContent=new Date().getFullYear();
-$("#zapLink").href=`https://wa.me/${CONFIG.whatsapp}`;
-renderLista();renderBebidas();renderUsuario();renderCarrinho();
+/* ===== INÍCIO ===== */
+$("#heroPizza").innerHTML=pizzaSVG(4,[SAB[1],SAB[3],SAB[14],SAB[5]],"Catupiry",8,-1);
+$("#zap").href="https://wa.me/"+CFG.zap;
+save();renderLogin();
 </script>
 </body>
 </html>
