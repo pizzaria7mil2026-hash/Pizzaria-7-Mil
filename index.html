@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pizzaria 7 Mil – Qualidade em cada fatia | Monte Negro, Camaçari</title>
+<meta name="description" content="Peça pizza online na Pizzaria 7 Mil, em Monte Negro (Cascalheira), Camaçari-BA. Cardápio completo, borda recheada e entrega.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--vinho:#2b0606;--vermelho:#c80f0f;--vermelho2:#e11d1d;--ouro:#f5b041;--creme:#fff3e0;--texto:#2b1a14;--ok:#1f8f4e}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Nunito',sans-serif;background:var(--creme);color:var(--texto);line-height:1.5}
+h1,h2,h3,.tit{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;line-height:1}
+button{font:inherit;cursor:pointer;border:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:20;background:var(--vinho);color:var(--creme)}
+header .wrap{display:flex;align-items:center;gap:14px;height:64px}
+header img{height:46px;width:46px;border-radius:50%;object-fit:cover}
+header nav{display:flex;gap:18px;margin-left:auto;font-weight:800;font-size:.95rem}
+header nav a{text-decoration:none}
+header nav a:hover{color:var(--ouro)}
+.btn{background:var(--vermelho);color:#fff;padding:10px 18px;border-radius:999px;font-weight:800}
+.btn:hover{background:var(--vermelho2)}
+.btn.ouro{background:var(--ouro);color:var(--vinho)}
+.btn.ghost{background:transparent;border:2px solid var(--ouro);color:var(--ouro)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+#cartBtn{position:relative}
+#cartCount{background:var(--ouro);color:var(--vinho);border-radius:999px;padding:0 7px;margin-left:6px;font-size:.85rem}
+.hero{background:radial-gradient(circle at 80% 20%,#8f0c0c,var(--vinho) 70%);color:var(--creme);padding:44px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);margin-bottom:14px}
+.hero p{max-width:44ch;margin-bottom:22px;opacity:.92}
+.hero img{width:100%;max-width:380px;justify-self:center;border-radius:50%;box-shadow:0 0 0 6px var(--ouro)}
+.hero .acoes{display:flex;gap:10px;flex-wrap:wrap}
+section{padding:48px 0}
+section h2{font-size:clamp(2rem,5vw,3rem);color:var(--vermelho);margin-bottom:6px}
+.sub{margin-bottom:20px;opacity:.8}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.tabs{display:flex;gap:8px}
+.tab{background:#fff;border:2px solid var(--vermelho);color:var(--vermelho);padding:8px 16px;border-radius:999px;font-weight:800}
+.tab[aria-selected=true]{background:var(--vermelho);color:#fff}
+#busca{flex:1;min-width:200px;padding:10px 16px;border:2px solid #e3c9a8;border-radius:999px;font:inherit;background:#fff}
+.lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.item{background:#fff;border-radius:14px;padding:14px;display:flex;gap:12px;align-items:center;border:2px solid transparent;text-align:left;width:100%;transition:border-color .15s,transform .15s}
+.item:hover{border-color:var(--vermelho);transform:translateY(-2px)}
+.num{background:var(--vermelho);color:#fff;border-radius:8px;min-width:36px;height:36px;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.item b{display:block;font-size:1.02rem}
+.item small{color:#6b4f43;display:block}
+.item .preco{margin-left:auto;font-weight:800;color:var(--vermelho);white-space:nowrap;text-align:right;font-size:.9rem}
+.vazio{padding:24px;text-align:center;opacity:.7}
+.bebidas{background:var(--vinho);color:var(--creme)}
+.bebidas h2{color:var(--ouro)}
+.bebidas .item{background:#4a0d0d;color:var(--creme)}
+.bebidas .item small{color:#e9c9b3}
+.bebidas .item .preco{color:var(--ouro)}
+.hist{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.hist p{margin-bottom:12px}
+.contato .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.card{background:#fff;border-radius:14px;padding:18px}
+.card b{display:block;margin-bottom:4px;color:var(--vermelho)}
+footer{background:var(--vinho);color:var(--creme);text-align:center;padding:24px 18px;font-size:.9rem}
+/* modal e carrinho */
+.fundo{position:fixed;inset:0;background:rgba(20,0,0,.6);z-index:30;display:none;align-items:center;justify-content:center;padding:14px}
+.fundo.on{display:flex}
+.painel{background:var(--creme);border-radius:18px;width:100%;max-width:480px;max-height:92vh;overflow:auto;padding:22px;position:relative}
+.painel h3{font-size:2rem;color:var(--vermelho)}
+.fechar{position:absolute;top:10px;right:12px;background:none;font-size:1.6rem;color:var(--vinho)}
+fieldset{border:0;margin:14px 0}
+legend{font-weight:800;margin-bottom:6px}
+.op{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #e3c9a8;border-radius:12px;padding:10px 12px;margin-bottom:6px;cursor:pointer}
+.op:has(input:checked){border-color:var(--vermelho);background:#ffe9e0}
+.op span:last-child{margin-left:auto;font-weight:800}
+.qtd{display:inline-flex;align-items:center;gap:10px}
+.qtd button{width:34px;height:34px;border-radius:50%;background:var(--vermelho);color:#fff;font-weight:800;font-size:1.1rem}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:10px 12px;border:2px solid #e3c9a8;border-radius:10px;font:inherit;background:#fff}
+label.campo{display:block;font-weight:800;margin-top:10px;font-size:.92rem}
+.gaveta{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--creme);z-index:40;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
+.gaveta.on{transform:none}
+.gaveta header{position:static}
+.gaveta .corpo{flex:1;overflow:auto;padding:16px}
+.linha{display:flex;gap:10px;align-items:flex-start;background:#fff;border-radius:12px;padding:10px 12px;margin-bottom:8px}
+.linha small{color:#6b4f43;display:block}
+.linha .dir{margin-left:auto;text-align:right;font-weight:800;white-space:nowrap}
+.tot{display:flex;justify-content:space-between;font-weight:800;padding:3px 0}
+.tot.g{font-size:1.3rem;color:var(--vermelho)}
+.pts{background:#fff7d6;border:2px solid var(--ouro);border-radius:12px;padding:10px 12px;margin-top:10px;font-size:.92rem}
+.aviso{font-size:.85rem;opacity:.75;margin-top:8px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ok);color:#fff;padding:10px 18px;border-radius:999px;font-weight:800;z-index:60;transition:transform .25s}
+#toast.on{transform:translateX(-50%)}
+@media(max-width:720px){.hero .wrap,.hist{grid-template-columns:1fr}.hero img{max-width:240px;order:-1}header nav a.n{display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <img src="logo.png" alt="Logo Pizzaria 7 Mil">
+    <span class="tit" style="font-size:1.4rem">Pizzaria 7 Mil</span>
+    <nav>
+      <a class="n" href="#cardapio">Cardápio</a>
+      <a class="n" href="#bebidas">Bebidas</a>
+      <a class="n" href="#historia">Nossa história</a>
+      <a class="n" href="#contato">Contato</a>
+      <button class="btn ghost" id="loginBtn">Entrar</button>
+      <button class="btn ouro" id="cartBtn">Carrinho<span id="cartCount">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Qualidade em cada fatia!</h1>
+      <p>Pizzas saborosas, preço acessível e entrega em Monte Negro e Cascalheira. Escolha o sabor, a borda e peça pelo site. Cada pedido rende pontos.</p>
+      <div class="acoes">
+        <a class="btn ouro" href="#cardapio" style="text-decoration:none">Ver cardápio</a>
+        <a class="btn ghost" href="#contato" style="text-decoration:none">Falar com a gente</a>
+      </div>
+    </div>
+    <img src="logo.png" alt="Pizzaria 7 Mil">
+  </div>
+</div>
+
+<section id="cardapio">
+  <div class="wrap">
+    <h2>Cardápio</h2>
+    <p class="sub">Toque no sabor para escolher tamanho e borda.</p>
+    <div class="tools">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-cat="salgada" aria-selected="true">Pizzas especiais</button>
+        <button class="tab" role="tab" data-cat="doce" aria-selected="false">Pizzas doces</button>
+      </div>
+      <input id="busca" type="search" placeholder="Buscar sabor ou ingrediente (ex.: frango, bacon)" aria-label="Buscar sabor">
+    </div>
+    <div class="lista" id="lista"></div>
+  </div>
+</section>
+
+<section id="bebidas" class="bebidas">
+  <div class="wrap">
+    <h2>Bebidas</h2>
+    <p class="sub">Para acompanhar a pizza.</p>
+    <div class="lista" id="listaBebidas"></div>
+  </div>
+</section>
+
+<section id="historia">
+  <div class="wrap hist">
+    <div>
+      <h2>Nossa história</h2>
+      <p>A Pizzaria 7 Mil nasceu com o propósito de levar sabor, qualidade e carinho à mesa de cada cliente. Ao longo de sua trajetória, vem conquistando seu espaço em Camaçari, na Bahia, especialmente na região de Monte Negro e Cascalheira.</p>
+    </div>
+    <div>
+      <p style="margin-top:46px">Com presença nas redes sociais desde 2018, a pizzaria construiu sua identidade valorizando aquilo que realmente importa: pizzas saborosas, preços acessíveis e um atendimento próximo de seus clientes.</p>
+      <p>Mais do que preparar pizzas, nosso objetivo é proporcionar bons momentos, reunir famílias e amigos e fazer com que cada pedido chegue à sua casa com muito sabor e qualidade.</p>
+      <p><b>Pizzaria 7 Mil — qualidade em cada fatia!</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="contato" style="padding-top:0">
+  <div class="wrap">
+    <h2>Contato</h2>
+    <div class="cards">
+      <div class="card"><b>WhatsApp</b><a id="zapLink" href="#" target="_blank" rel="noopener">(71) 8116-0304</a></div>
+      <div class="card"><b>Endereço</b>Monte Negro (Cascalheira)<br>Camaçari – BA</div>
+      <div class="card"><b>Telefone</b><a href="tel:+5571981160304">(71) 8116-0304</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="ano"></span> Pizzaria 7 Mil · Monte Negro, Camaçari – BA</footer>
+
+<!-- Modal de pizza -->
+<div class="fundo" id="modalPizza" role="dialog" aria-modal="true" aria-labelledby="pzNome">
+  <div class="painel">
+    <button class="fechar" data-fechar aria-label="Fechar">×</button>
+    <h3 id="pzNome"></h3>
+    <p id="pzRecheio" style="opacity:.8"></p>
+    <fieldset><legend>Tamanho</legend><div id="pzTamanhos"></div></fieldset>
+    <fieldset><legend>Borda</legend><div id="pzBordas"></div></fieldset>
+    <label class="campo" for="pzObs">Observação (opcional)</label>
+    <textarea id="pzObs" rows="2" placeholder="Ex.: sem cebola"></textarea>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:10px">
+      <div class="qtd"><button id="pzMenos" aria-label="Menos">−</button><b id="pzQtd">1</b><button id="pzMais" aria-label="Mais">+</button></div>
+      <button class="btn" id="pzAdd"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de login -->
+<div class="fundo" id="modalLogin" role="dialog" aria-modal="true" aria-labelledby="lgTit">
+  <div class="painel">
+    <button class="fechar" data-fechar aria-label="Fechar">×</button>
+    <h3 id="lgTit">Entrar e ganhar pontos</h3>
+    <div id="lgOff">
+      <p style="margin:8px 0">A cada R$ 1,00 em pedidos você ganha 1 ponto. Com <span class="pt-meta"></span> pontos, ganha desconto no próximo pedido.</p>
+      <label class="campo" for="lgNome">Seu nome</label><input type="text" id="lgNome" autocomplete="name">
+      <label class="campo" for="lgTel">WhatsApp</label><input type="tel" id="lgTel" placeholder="71 90000-0000" autocomplete="tel">
+      <button class="btn" id="lgEntrar" style="width:100%;margin-top:16px">Entrar</button>
+      <p class="aviso">Seus dados ficam salvos só neste aparelho.</p>
+    </div>
+    <div id="lgOn" hidden>
+      <p style="margin:8px 0">Olá, <b id="lgOla"></b>!</p>
+      <div class="pts"><span class="tit" style="font-size:2.4rem;color:var(--vermelho)" id="lgPts">0</span> pontos<br><span id="lgFalta"></span></div>
+      <button class="btn ghost" id="lgSair" style="width:100%;margin-top:16px;color:var(--vermelho);border-color:var(--vermelho)">Sair</button>
+    </div>
+  </div>
+</div>
+
+<!-- Carrinho -->
+<div class="fundo" id="fundoCarrinho" style="z-index:35"></div>
+<aside class="gaveta" id="gaveta" aria-label="Carrinho">
+  <header><div class="wrap" style="padding:0 16px"><span class="tit" style="font-size:1.6rem">Seu pedido</span><button class="fechar" style="position:static;margin-left:auto;color:var(--creme)" data-fechar-carrinho aria-label="Fechar">×</button></div></header>
+  <div class="corpo">
+    <div id="itens"></div>
+    <div id="resumo"></div>
+    <form id="form" hidden>
+      <h3 style="font-size:1.6rem;margin:18px 0 0;color:var(--vermelho)">Dados da entrega</h3>
+      <label class="campo" for="fNome">Nome</label><input type="text" id="fNome" required autocomplete="name">
+      <label class="campo" for="fTel">Telefone / WhatsApp</label><input type="tel" id="fTel" required autocomplete="tel">
+      <label class="campo" for="fRua">Rua e número</label><input type="text" id="fRua" required>
+      <label class="campo" for="fBairro">Bairro</label><input type="text" id="fBairro" value="Monte Negro" required>
+      <label class="campo" for="fRef">Ponto de referência</label><input type="text" id="fRef" placeholder="Ex.: perto da padaria" required>
+      <label class="campo" for="fPag">Forma de pagamento</label>
+      <select id="fPag"><option>Pix</option><option>Dinheiro</option><option>Cartão de débito</option><option>Cartão de crédito</option></select>
+      <div id="trocoBox" hidden><label class="campo" for="fTroco">Troco para quanto?</label><input type="text" id="fTroco" placeholder="Ex.: 100"></div>
+      <button class="btn" type="submit" style="width:100%;margin-top:16px;padding:14px">Enviar pedido pelo WhatsApp</button>
+      <p class="aviso">O pedido abre no WhatsApp da pizzaria já preenchido. Confirme o envio por lá.</p>
+    </form>
+  </div>
+</aside>
+
+<div id="toast" role="status"></div>
+
+<script>
+/* ============ CONFIGURAÇÃO (edite aqui) ============ */
+const CONFIG = {
+  whatsapp: "5571981160304",
+  taxaEntrega: 0,            // taxa de entrega em R$
+  precoBorda: 5,             // borda recheada
+  pontosPorReal: 1,          // pontos ganhos por R$ 1
+  metaPontos: 100,           // pontos para trocar por desconto
+  descontoResgate: 10        // desconto em R$ ao trocar a meta
+};
+/* PREÇOS DE EXEMPLO: troque pelos valores reais da pizzaria */
+const TAMANHOS = {
+  salgada: [{n:"Média (6 fatias)",p:35},{n:"Grande (8 fatias)",p:45}],
+  doce:    [{n:"Média (6 fatias)",p:38},{n:"Grande (8 fatias)",p:48}]
+};
+const BEBIDAS = [
+  {n:"Coca-Cola 2 L",p:14},{n:"Guaraná 2 L",p:12},{n:"Refrigerante 1 L",p:8},
+  {n:"Refrigerante lata 350 ml",p:6},{n:"Suco natural (copo)",p:7},{n:"Água mineral 500 ml",p:3}
+];
+const SALGADAS = [
+["Frango","Molho, mussarela, frango e orégano"],["Frango Catupiry","Molho, mussarela, frango, catupiry e orégano"],
+["Frango Cheddar","Molho, mussarela, frango, cheddar e orégano"],["Calabresa","Molho, mussarela, calabresa, cebola e orégano"],
+["Apoiana","Molho, mussarela, tomate e orégano"],["Marquerita","Molho, mussarela, tomate, manjericão e orégano"],
+["Milho","Molho, mussarela, milho e orégano"],["Baiana","Molho, mussarela, calabresa, pimenta e orégano"],
+["Cheia","Molho, mussarela, pimenta e orégano"],["Vegetariana","Molho, mussarela, milho, ervilha, tomate e orégano"],
+["Dois Queijos","Molho, mussarela, catupiry e orégano"],["Atum","Molho, mussarela, atum, cebola e orégano"],
+["Atum Especial","Molho, mussarela, atum, cebola, catupiry e orégano"],["Atum Chic","Molho, mussarela, atum, cebola, cheddar e orégano"],
+["Nordestina","Molho, mussarela, bacon, milho, cebola e orégano"],["Churrasco","Molho, mussarela, churrasco, cebola, bacon, pimenta e orégano"],
+["Baiana Especial","Molho, mussarela, calabresa, cebola, bacon, pimenta calabresa e orégano"],["Peito de Peru","Molho, mussarela, peito de peru e orégano"],
+["Petu Chic","Molho, mussarela, peito de peru, cheddar e orégano"],["Lombinho","Molho, mussarela, lombo, tomate, cebola e orégano"],
+["Lombinho Especial","Molho, mussarela, lombo, catupiry, cheddar e orégano"],["Quatro Queijos","Molho, mussarela, cheddar, provolone e orégano"],
+["Três Queijos","Molho, mussarela, cheddar, provolone e orégano"],["Moda da Casa","Molho, mussarela, catupiry, calabresa, cebola, azeitona e orégano"],
+["Portuguesa","Molho, mussarela, presunto, calabresa, tomate, pimentão e orégano"],["Carne do Sol","Molho, mussarela, carne do sol, cebola, azeitona e orégano"],
+["Peito de Frango","Molho, mussarela, peito de frango desfiado, cebola, tomate e azeitona"],["Peito Duro","Molho, mussarela, peito de frango desfiado, bacon, milho e orégano"],
+["Charque e Banana","Molho, mussarela, charque, banana da terra, cebola e orégano"],["Carne do Sol c/ Banana","Molho, mussarela, carne do sol, banana da terra, cebola e orégano"],
+["Frango com Milho","Molho, mussarela, frango, milho e orégano"],["Bacon","Molho, mussarela, bacon, cebola e orégano"]
+];
+const DOCES = [
+["Belinho","Mussarela, leite condensado, coco ralado"],["Romeu e Julieta","Mussarela e goiabada"],
+["Brigadeiro","Mussarela, chocolate e granulado"],["Banana com Chocolate","Mussarela, leite condensado e banana"]
+];
+const SABORES = [
+  ...SALGADAS.map((s,i)=>({id:i+1,n:s[0],r:s[1],c:"salgada"})),
+  ...DOCES.map((s,i)=>({id:33+i,n:s[0],r:s[1],c:"doce"}))
+];
+
+/* ============ UTILITÁRIOS ============ */
+const $=s=>document.querySelector(s);
+const R$=v=>"R$ "+v.toFixed(2).replace(".",",");
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function ler(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}}
+function gravar(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1800)}
+
+let carrinho=ler("p7_carrinho",[]);
+let usuario=ler("p7_usuario",null);
+let cat="salgada",atual=null,qtd=1;
+
+/* ============ CARDÁPIO ============ */
+function renderLista(){
+  const q=$("#busca").value.trim().toLowerCase();
+  const itens=SABORES.filter(s=>s.c===cat&&(s.n+" "+s.r).toLowerCase().includes(q));
+  const base=TAMANHOS[cat][0].p;
+  $("#lista").innerHTML=itens.length?itens.map(s=>`
+    <button class="item" data-id="${s.id}">
+      <span class="num">${String(s.id).padStart(2,"0")}</span>
+      <span><b>${esc(s.n)}</b><small>${esc(s.r)}</small></span>
+      <span class="preco">a partir de<br>${R$(base)}</span>
+    </button>`).join(""):`<p class="vazio">Nenhum sabor encontrado. Tente outra palavra.</p>`;
+}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+  cat=b.dataset.cat;
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected",x===b));
+  renderLista();
+});
+$("#busca").oninput=renderLista;
+$("#lista").onclick=e=>{const b=e.target.closest(".item");if(b)abrirPizza(+b.dataset.id)};
+
+function renderBebidas(){
+  $("#listaBebidas").innerHTML=BEBIDAS.map((b,i)=>`
+    <button class="item" data-b="${i}"><span><b>${esc(b.n)}</b><small>Toque para adicionar</small></span><span class="preco">${R$(b.p)}</span></button>`).join("");
+}
+$("#listaBebidas").onclick=e=>{
+  const b=e.target.closest(".item");if(!b)return;
+  const d=BEBIDAS[+b.dataset.b];
+  add({tipo:"bebida",nome:d.n,det:"",preco:d.p,qtd:1});
+};
+
+/* ============ MODAL PIZZA ============ */
+function abrirPizza(id){
+  atual=SABORES.find(s=>s.id===id);qtd=1;$("#pzQtd").textContent=1;$("#pzObs").value="";
+  $("#pzNome").textContent=`${String(id).padStart(2,"0")} · ${atual.n}`;
+  $("#pzRecheio").textContent=atual.r;
+  $("#pzTamanhos").innerHTML=TAMANHOS[atual.c].map((t,i)=>`
+    <label class="op"><input type="radio" name="tam" value="${i}" ${i===0?"checked":""}><span>${t.n}</span><span>${R$(t.p)}</span></label>`).join("");
+  $("#pzBordas").innerHTML=[["Sem borda",0],["Borda de catupiry",CONFIG.precoBorda],["Borda de cheddar",CONFIG.precoBorda]].map((b,i)=>`
+    <label class="op"><input type="radio" name="borda" value="${b[0]}" data-p="${b[1]}" ${i===0?"checked":""}><span>${b[0]}</span><span>${b[1]?"+ "+R$(b[1]):"grátis"}</span></label>`).join("");
+  $("#modalPizza").classList.add("on");atualizaPz();
+}
+function precoPz(){
+  const t=TAMANHOS[atual.c][+document.querySelector("[name=tam]:checked").value];
+  const b=document.querySelector("[name=borda]:checked");
+  return {t,b,unit:t.p+ +b.dataset.p};
+}
+function atualizaPz(){$("#pzAdd").textContent=`Adicionar · ${R$(precoPz().unit*qtd)}`}
+$("#modalPizza").addEventListener("change",atualizaPz);
+$("#pzMais").onclick=()=>{qtd++;$("#pzQtd").textContent=qtd;atualizaPz()};
+$("#pzMenos").onclick=()=>{if(qtd>1){qtd--;$("#pzQtd").textContent=qtd;atualizaPz()}};
+$("#pzAdd").onclick=()=>{
+  const {t,b,unit}=precoPz();
+  add({tipo:"pizza",nome:`${atual.n} (${t.n.split(" ")[0]})`,det:b.value+($("#pzObs").value.trim()?` · Obs: ${$("#pzObs").value.trim()}`:""),preco:unit,qtd});
+  fechar();
+};
+
+/* ============ CARRINHO ============ */
+function add(it){
+  const ex=carrinho.find(c=>c.nome===it.nome&&c.det===it.det);
+  ex?ex.qtd+=it.qtd:carrinho.push(it);
+  salvarCarrinho();toast("Adicionado ao carrinho");
+}
+function salvarCarrinho(){gravar("p7_carrinho",carrinho);renderCarrinho()}
+function subtotal(){return carrinho.reduce((s,c)=>s+c.preco*c.qtd,0)}
+let usarPontos=false;
+function renderCarrinho(){
+  $("#cartCount").textContent=carrinho.reduce((s,c)=>s+c.qtd,0);
+  if(!carrinho.length){$("#itens").innerHTML=`<p class="vazio">Seu carrinho está vazio. Escolha uma pizza no cardápio.</p>`;$("#resumo").innerHTML="";$("#form").hidden=true;return}
+  $("#itens").innerHTML=carrinho.map((c,i)=>`
+    <div class="linha"><div><b>${esc(c.nome)}</b><small>${esc(c.det)}</small>
+      <div class="qtd" style="margin-top:6px"><button data-m="${i}" aria-label="Menos">−</button><b>${c.qtd}</b><button data-p="${i}" aria-label="Mais">+</button></div></div>
+      <div class="dir">${R$(c.preco*c.qtd)}<br><button data-x="${i}" style="background:none;color:var(--vermelho);font-size:.8rem">remover</button></div></div>`).join("");
+  const sub=subtotal(),pts=usuario?usuario.pontos:0;
+  const pode=usuario&&pts>=CONFIG.metaPontos&&sub>CONFIG.descontoResgate;
+  if(!pode)usarPontos=false;
+  const desc=usarPontos?CONFIG.descontoResgate:0;
+  const total=sub-desc+CONFIG.taxaEntrega;
+  $("#resumo").innerHTML=`
+    <div class="tot"><span>Subtotal</span><span>${R$(sub)}</span></div>
+    ${CONFIG.taxaEntrega?`<div class="tot"><span>Entrega</span><span>${R$(CONFIG.taxaEntrega)}</span></div>`:""}
+    ${desc?`<div class="tot"><span>Desconto (pontos)</span><span>− ${R$(desc)}</span></div>`:""}
+    <div class="tot g"><span>Total</span><span>${R$(total)}</span></div>
+    <div class="pts">${usuario
+      ?(pode?`<label><input type="checkbox" id="resg" ${usarPontos?"checked":""}> Usar ${CONFIG.metaPontos} pontos e ganhar ${R$(CONFIG.descontoResgate)} de desconto</label>`
+        :`Você tem <b>${pts}</b> pontos. Este pedido rende +${Math.floor(total*CONFIG.pontosPorReal)}.`)
+      :`<button class="btn ouro" id="irLogin" type="button" style="padding:6px 14px">Entrar</button> para ganhar +${Math.floor(total*CONFIG.pontosPorReal)} pontos neste pedido.`}</div>`;
+  $("#form").hidden=false;
+  if(usuario){if(!$("#fNome").value)$("#fNome").value=usuario.nome;if(!$("#fTel").value)$("#fTel").value=usuario.tel}
+}
+$("#itens").onclick=e=>{
+  const d=e.target.dataset;
+  if(d.m!==undefined){const c=carrinho[+d.m];c.qtd--;if(c.qtd<1)carrinho.splice(+d.m,1)}
+  else if(d.p!==undefined)carrinho[+d.p].qtd++;
+  else if(d.x!==undefined)carrinho.splice(+d.x,1);
+  else return;
+  salvarCarrinho();
+};
+$("#resumo").onclick=e=>{
+  if(e.target.id==="resg"){usarPontos=e.target.checked;renderCarrinho()}
+  if(e.target.id==="irLogin"){fechar();$("#modalLogin").classList.add("on")}
+};
+$("#fPag").onchange=e=>{$("#trocoBox").hidden=e.target.value!=="Dinheiro"};
+$("#cartBtn").onclick=()=>{$("#gaveta").classList.add("on");$("#fundoCarrinho").classList.add("on")};
+function fecharCarrinho(){$("#gaveta").classList.remove("on");$("#fundoCarrinho").classList.remove("on")}
+$("#fundoCarrinho").onclick=fecharCarrinho;
+document.querySelector("[data-fechar-carrinho]").onclick=fecharCarrinho;
+
+/* ============ ENVIO WHATSAPP ============ */
+$("#form").onsubmit=e=>{
+  e.preventDefault();
+  const sub=subtotal(),desc=usarPontos?CONFIG.descontoResgate:0,total=sub-desc+CONFIG.taxaEntrega;
+  let m=`*Novo pedido – Pizzaria 7 Mil*\n\n`;
+  carrinho.forEach(c=>{m+=`• ${c.qtd}x ${c.nome}${c.det?` (${c.det})`:""} – ${R$(c.preco*c.qtd)}\n`});
+  m+=`\nSubtotal: ${R$(sub)}\n`;
+  if(CONFIG.taxaEntrega)m+=`Entrega: ${R$(CONFIG.taxaEntrega)}\n`;
+  if(desc)m+=`Desconto (pontos): -${R$(desc)}\n`;
+  m+=`*Total: ${R$(total)}*\n\n`;
+  m+=`*Cliente:* ${$("#fNome").value}\n*Telefone:* ${$("#fTel").value}\n`;
+  m+=`*Endereço:* ${$("#fRua").value}, ${$("#fBairro").value}\n*Referência:* ${$("#fRef").value}\n`;
+  m+=`*Pagamento:* ${$("#fPag").value}`;
+  if($("#fPag").value==="Dinheiro"&&$("#fTroco").value)m+=` (troco para ${$("#fTroco").value})`;
+  if(usuario){
+    usuario.pontos=usuario.pontos-(usarPontos?CONFIG.metaPontos:0)+Math.floor(total*CONFIG.pontosPorReal);
+    gravar("p7_usuario",usuario);renderUsuario();
+  }
+  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(m)}`,"_blank");
+  carrinho=[];usarPontos=false;salvarCarrinho();fecharCarrinho();toast("Pedido enviado!");
+};
+
+/* ============ LOGIN E PONTOS ============ */
+function renderUsuario(){
+  $("#loginBtn").textContent=usuario?`${usuario.pontos} pts`:"Entrar";
+  $("#lgOff").hidden=!!usuario;$("#lgOn").hidden=!usuario;
+  document.querySelectorAll(".pt-meta").forEach(e=>e.textContent=CONFIG.metaPontos);
+  if(usuario){
+    $("#lgOla").textContent=usuario.nome.split(" ")[0];$("#lgPts").textContent=usuario.pontos;
+    const f=CONFIG.metaPontos-usuario.pontos;
+    $("#lgFalta").textContent=f>0?`Faltam ${f} pontos para ganhar ${R$(CONFIG.descontoResgate)} de desconto.`:`Você já pode usar ${R$(CONFIG.descontoResgate)} de desconto no carrinho!`;
+  }
+  if($("#gaveta"))renderCarrinho();
+}
+$("#loginBtn").onclick=()=>$("#modalLogin").classList.add("on");
+$("#lgEntrar").onclick=()=>{
+  const nome=$("#lgNome").value.trim(),tel=$("#lgTel").value.replace(/\D/g,"");
+  if(nome.length<2||tel.length<10){toast("Informe nome e WhatsApp com DDD");return}
+  const todos=ler("p7_contas",{});
+  usuario=todos[tel]||{nome,tel,pontos:0};usuario.nome=nome;
+  todos[tel]=usuario;gravar("p7_contas",todos);gravar("p7_usuario",usuario);
+  renderUsuario();fechar();toast(`Bem-vindo, ${nome.split(" ")[0]}!`);
+};
+$("#lgSair").onclick=()=>{
+  const todos=ler("p7_contas",{});if(usuario)todos[usuario.tel]=usuario;gravar("p7_contas",todos);
+  usuario=null;try{localStorage.removeItem("p7_usuario")}catch(e){}renderUsuario();fechar();
+};
+
+/* ============ FECHAR MODAIS ============ */
+function fechar(){document.querySelectorAll(".fundo.on:not(#fundoCarrinho)").forEach(f=>f.classList.remove("on"))}
+document.querySelectorAll("[data-fechar]").forEach(b=>b.onclick=fechar);
+document.querySelectorAll(".fundo:not(#fundoCarrinho)").forEach(f=>f.onclick=e=>{if(e.target===f)fechar()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){fechar();fecharCarrinho()}});
+
+/* ============ INICIO ============ */
+$("#ano").textContent=new Date().getFullYear();
+$("#zapLink").href=`https://wa.me/${CONFIG.whatsapp}`;
+renderLista();renderBebidas();renderUsuario();renderCarrinho();
+</script>
+</body>
+</html>
